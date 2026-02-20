@@ -51,19 +51,31 @@
       </div>
       <ul class="responsive_nav">
         <li>
-          <a href="https://perstarke-webdev.de/project">          Projects
+          <a href="https://perstarke-webdev.de/project">          Home
 </a>
         </li>
         <li>
-          <a href="https://perstarke-webdev.de/services">          Services
+          <a href="https://perstarke-webdev.de/services">          Git and Github
 </a>
         </li>
         <li>
-          <a href="https://perstarke-webdev.de/about-us">          About
+          <a href="https://perstarke-webdev.de/about-us">          High-Performance Computing
 </a>
         </li>
         <li>
-          <a href="https://perstarke-webdev.de/blog">          Blog
+          <a href="https://perstarke-webdev.de/blog">          Tutorials
+</a>
+        </li>
+         <li>
+          <a href="https://perstarke-webdev.de/blog">          Practice Material
+</a>
+        </li>
+         <li>
+          <a href="https://perstarke-webdev.de/blog">          Further Learning
+</a>
+        </li>
+         <li>
+          <a href="https://perstarke-webdev.de/blog">          Glossary
 </a>
         </li>
       </ul>
