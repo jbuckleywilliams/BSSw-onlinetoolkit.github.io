@@ -66,13 +66,6 @@ h2, h3 {
     padding: auto;
 }
 
-p {
-    color: #0b0b0b;
-    font-family: Arial, sans-serif;
-    font-size: 18px;
-    line-height: 1.6;
-    text-align: center;
-}
 
 footer p {
     font-size: 14px;
@@ -104,3 +97,130 @@ main a {
     border-radius: 5px;
 }
 
+body {
+    background-color: #f8f2f2;
+}
+
+/* Header */
+header {
+    background-color: #3e1023;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header .logo {
+    max-width: 150px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+/* Navigation bar */
+nav {
+    background-color: #444444a1;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    position: relative;
+}
+
+/* Navigation links */
+nav ul li a {
+    display: block;
+    color: #fff;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Dropdown menu */
+nav ul li ul.dropdown {
+    display: none;
+    position: absolute;
+    background-color: #444444;
+    min-width: 200px;
+    text-align: left;
+    top: 100%;
+    left: 0;
+}
+
+nav ul li ul.dropdown li {
+    display: block;
+}
+
+nav ul li ul.dropdown li a {
+    padding: 10px 15px;
+}
+
+/* Show dropdown on hover */
+nav ul li:hover ul.dropdown {
+    display: block;
+}
+
+/* Section layout */
+section {
+    padding: 20px;
+}
+
+/* Headings */
+h2, h3 {
+    color: #010000;
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Paragraph text */
+p {
+    color: #0b0b0b;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Main text spacing */
+main p {
+    padding: 5px 200px;
+}
+
+/* Buttons/links in main */
+main a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #3e1023;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Footer */
+footer {
+    background-color: #3e1023;
+    color: #ece6e6;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer p {
+    font-size: 14px;
+    margin: 10px;
+    line-height: 1.4;
+}
