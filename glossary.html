@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Learning High-Performance Computing with an Online Toolkit</title>
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="description" content="An online toolkit for learning high-performance computing, covering profiling, tuning, and optimization techniques for HPC applications.">
+    <link rel="stylesheet" href="git_content.css">
+
+</head>
+
+<body>
+
+<header>
+    <h1>From Code to Performance</h1>
+</header>
+<nav>
+    <ul>
+         <li><a href="index.html">Home</a></li>
+        <li>
+             <a href="Git_and_Git_Hub.html">Git and Git Hub &#x25BE;</a>
+            <ul class="dropdown">
+                <li><a href="what_git_and_git_hub.html">What is Git and GitHub?</a></li>
+                <li><a href="git_vs_github.html">Git vs. Github</a></li>
+                <li><a href="create_account.html">Create a Github Account</a></li>
+                <li><a href="hello_world.html">Hello World on Github</a></li>
+                <li><a href="questions.html">Common Questions Beginners Have</a></li>
+                <li><a href="bonus.html">Bonus: Hello World in Git Commands</a></li>
+        </ul>
+        </li>
+        <li>
+            <a href="high_performance_computing.html">High-Performance Computing &#x25BE;</a>
+            <ul class="dropdown">
+                <li><a href="introduction_to_high_performance_computing.html">Introduction to HPC Optimization</a></li>
+                <li><a href="computing.html">Parallel Computing Foundations</a></li>
+                <li><a href="programming.html">MPI & OpenMP Programming</a></li>
+                <li><a href="performance.html">Performance Optimization</a></li>
+                <li><a href="tools.html">Performance Analysis and Tools</a></li>
+            </ul>
+        </li>
+     <li><a href="Tutorials.html">Tutorials &#x25BE;</a>
+         <ul class="dropdown">
+                <li><a href="tutorials_one.html">Tutorial 1: Advanced Git and Github</a></li>
+                <li><a href="tutorials_two.html">Tutorial 2: Introduction to High-Performance Parallel Programming</a></li>
+                <li><a href="tutorials_three.html">Tutorial 3: Practicing Guide to Using Github Pages for Hosting Projects</a></li>
+                <li><a href="tutorials_four.html">Tutorial 4: Measuring Performance in HPC Applications</a></li>
+            </ul>
+        </li>
+        <li><a href="practice_material.html">Practice Material &#x25BE;</a>
+         <ul class="dropdown">
+                <li><a href="Exercise_one.html">Exercise 1: Git & Github Practice Material</a></li>
+                <li><a href="Exercise_two.html">Exercise 2: HPC Practice Material (MPI) & OpenMP)</a></li>
+                <li><a href="Exercise_three.html">Exercise 3: Advanced Git & Github Collaboration</a></li>
+                <li><a href="Exercise_four.html">Exercise 4: Automating Builds with Github Actions</a></li>
+                <li><a href="Exercise_five.html">Exercise 5: MPI + OpenMP Performance Tuning</a></li>
+                <li><a href="Exercise_six.html">Exercise 6: Profiling and Optimization Challenge</a></li>
+                <li><a href="Exercise_seven.html">Exercise 7: Implement Amdahl's Law Experiment</a></li>
+                <li><a href="Exercise_eight.html">Exercise 8: Data Decomposition in MPI</a></li>
+                <li><a href="Exercise_nine.html">Exercise 9: Mini-Project - HPC Stimulation Pipeline</a></li>
+             </ul>
+            </li>
+        <li><a href="further_learning.html">Further Learning</a></li>
+        <li><a href="glossary.html">Glossary</a></li>
+    </ul>
+</nav>
+
+<body>
+
+
+
+<main>
+
+<h3>Glossary of Terms</h3>
+
+
+<!-- ================= GENERAL COMPUTING ================= -->
+<section>
+    <h2>General Computing & Programming</h2>
+    <dl>
+        <p><strong>Algorithm:</strong> A step-by-step procedure for solving a problem or performin a computation.</p>
+
+        <p><strong>Application Program Interface (API):</strong> A defined way for software programs to communicate with each other.</p>
+
+        <p><strong>Array:</strong> A collection of data items stored at contiguous memory locations.</p>
+      
+
+    <p><strong>Cache:</strong> A small, high speed memory used to temporarily store frequently accessed data to improve performance.</p>
+
+        <p><strong>CPU:</strong> The main processor that performs computation in a computer system.</p>
+
+        <p><strong>Compiler:</strong> A program that translates source code into machine code executable by a computer.</p>
+
+        <p><strong>Debugging:</strong> The process of finding and fixing errors in software code.</p>
+
+        <p><strong>Latency:</strong> The time delay between initiating a request and receiving a response.</p>
+
+        <p><strong>Throughput:</strong> The amount of work a system can perform in a given amount of time.</p>
+</section>
+
+</section>
+
+<!-- ================= GIT ================= -->
+<section>
+<h2>Git & GitHub Terminology</h2>
+
+<p><strong>Branch:</strong> A parallel version of a repository that allows independent development without affecting the main codebase.</p>
+<p><strong>Clone:</strong> A local copy of a remote GitHub repository.</p>
+<p><strong>Commit:</strong> A snapshot of your project’s changes, including a message describing what was changed.</p>
+<p><strong>Conflict:</strong>  A situation that arises when changes from different branches contradict each other and must be resolved manually.</p>
+<p><strong>Fork:</strong> A copy of someone else’s repository that you can modify freely under your account.</p>
+<p><strong>Git:</strong> A distributed version control system for tracking changes in source code.</p>
+<p><strong>GitHub:</strong> A web-based platform built on Git for hosting repositories, collaboration, and project management.</p>
+<p><strong>Merge:</strong> The process of combining changes from one branch into another.</p>
+<p><strong>Merge Conflict:</strong> Occurs when Git cannot automatically reconcile differences in code between two branches.</p>
+<p><strong>Pull:</strong> Downloads the latest changes from a remote repository to your local one.</p>
+<p><strong>Push:</strong> Uploads local commits to a remote repository (e.g., GitHub).</p>
+<p><strong>Pull Request (PR):</strong> A request to merge code changes from one branch or fork into another. It often includes peer review.</p>
+<p><strong>Repository:</strong> A project folder tracked by Git that contains code, files, and revision history.</p>
+<p><strong>Staging Area:</strong> The place where changes are reviewed before being committed.</p>
+<p><strong>Version Control:</strong> A system for recording changes to files over time so that specific versions can be recalled later.</p>
+
+</section>
+
+<!-- ================= HPC ================= -->
+<section>
+<h2>High-Performance Computing (HPC)</h2>
+
+<p><strong>Clusters:</strong> A group of interconnected computers (nodes) that work together as a single system.</p>
+<p><strong>Core:</strong> An individual processing unit within a CPU.</p>
+<p><strong>High Performance Computing (HPC):</strong> The use of supercomputers and clusters of computers to perform calculations far faster than a standard computer.</p>
+<p><strong>Node:</strong> A single computer in an HPC cluster, usually containing multiple CPUs (sockets).</p>
+<p><strong>Interconnected / Network Fabric:</strong> The communication system that links HPC nodes (e.g., InfiniBand, Omni-Path).</p>
+<p><strong>Job Scheduler:</strong>  Software (like Slurm or PBS) that manages when and where jobs run across the cluster.</p>
+<p><strong>Parallel Computing:</strong> Dividing a computational problem into parts that can be executed simultaneously on multiple processors.</p>
+<p><strong>Scalability:</strong> The ability of a program to maintain efficiency as the number of processors increases.</p>
+<p><strong>Strong Scaling:</strong> Fix the total problem size and increase the number of processors to reduce runtime.</p>
+<p><strong>Weak Scaling:</strong> Increase both the problem size and number of processors so each processor’s workload stays constant.</p>
+<p><strong>Speedup (S):</strong> The ratio of serial runtime to parallel runtime.
+S(P)=T(1)T(P)S(P)=T(P)T(1)​
+</p>
+<p><strong>Efficiency:</strong> Measures how effectively parallel resources are used.
+E(P)=S(P)PE(P)=PS(P)​
+</p>
+<p><strong>Load Balancing:</strong> Ensuring all processors have roughly equal work to avoid idle time.</p>
+<p><strong>Latency:</strong> The delay before data transfer begins following a communication request.</p>
+<p><strong>Bandwidth:</strong> The rate at which data can be transferred, typically measured in GB/s.</p>
+<p><strong>Non-Uniform Memory Access (NUMA):</strong> Memory architecture where access time depends on which processor’s memory is used.</p>
+
+</section>
+
+<!-- ================= MPI ================= -->
+<section>
+<h2>MPI Terminology</h2>
+
+<p><strong>MPI:</strong> Standard for distributed communication.</p>
+<p><strong>Rank:</strong> Unique ID of each process.</p>
+<p><strong>Communicator:</strong> A group of MPI processes that can communicate with one another (default: <code>MPI_COMM_WORLD</code>).</p>
+<p><strong>Collective Communication:</strong> MPI operations that involve all processes (e.g., <code>MPI_Bcast</code>, <code>MPI_Reduce</code>, <code>MPI_Allreduce</code>).</p>
+<p><strong>Point-to-Point:</strong> Direct message exchange between two MPI processes (e.g., <code>MPI_Send</code> and <code>MPI_Recv</code>).</p>
+<p><strong>Blocking:</strong> The function waits until communication completes.</p>
+<p><strong>Non-Blocking:</strong> The function returns immediately, allowing computation overlap.</p>
+<p><strong>Remote Memory Access (RMA):</strong> One-sided communication in MPI that allows direct memory reads/writes between processes without explicit synchronization.</p>
+<p><strong>MPI Derived Datatypes:</strong> Custom data layouts defined for efficient transfer of structured or non-contiguous data. </p>
+<p><strong>MPI I/O:</strong> Parallel input/output routines for reading/writing large datasets collectively across multiple nodes.</p>
+
+</section>
+
+
+
+
+</section>
+
+<!-- ================= OPENMP ================= -->
+<section>
+<h2>OpenMP Terminology</h2>
+
+<p><strong>OpenMP:</strong> An API for parallel programming on shared memory systems using compiler directives.</p>
+<p><strong>Thread Affinity:</strong> A lightweight execution unit that shares memory with other threads within a process.</p>
+<p><strong>Parallel Region:</strong> Code block that runs across multiple threads simultaneously (<code>#pragma omp parallel</code>).</p>
+<p><strong>Work-Sharing Construct:</strong> Divides tasks among threads (e.g., <code>#pragma omp for, #pragma omp sections</code>).</p>
+<p><strong>Reduction:</strong> Combines partial results from multiple threads into a single result safely.</p>
+<p><strong>Critical Section:</strong> A code block that only one thread can execute at a time, preventing data races.</p>
+<p><strong>False Sharing:</strong> Performance issue where multiple threads write to variables on the same cache line.</p>
+<p><strong>Thread Affinity:</strong> Binding threads to specific CPU cores to minimize context switching and maximize cache reuse.</p>
+<p><strong>Private Variables:</strong> Each thread has its own copy.</p>
+<p><strong>Shared Variables:</strong> All threads access the same variable.</p>
+<p><strong>False Sharing:</strong> Threads competing for cache.</p>
+
+</section>
+
+<!-- ================= OPTIMIZATION ================= -->
+<section>
+<h2>Optimization & Performance</h2>
+
+<p><strong>Optimization:</strong> The process of improving a program’s performance by maximizing computation and minimizing bottlenecks (e.g., memory, communication, I/O).</p>
+<p><strong>Profiling:</strong> Analyzing a program’s runtime behavior to identify performance bottlenecks.</p>
+<p><strong>Roofline Model:</strong> A visual model that relates performance (FLOPS) to arithmetic intensity (FLOPS/byte) to identify whether an application is compute- or memory-bound.</p>
+<p><strong>Arithmetic Intensity:</strong> Ratio of operations to data movement:
+AI=FLOPsBytes movedAI=Bytes movedFLOPs​
+</p>
+<p><strong>Vectorization:</strong> Performing multiple calculations simultaneously using vector registers (e.g., AVX instructions).</p>
+<p><strong>Cache Blocking:</strong> Reordering computations to reuse data in cache and minimize memory access.</p>
+<p><strong>Memory Hierarchy:</strong> Organization of memory from fastest to slowest: Registers → L1 → L2 → L3 → RAM → Disk.</p>
+<p><strong>Amdahl’s Law:</strong> Defines the theoretical speedup limit of a parallel system based on the sequential portion of code:
+S=1(1−P)+P/NS=(1−P)+P/N1​
+</p>
+<p><strong>Gustafson’s Law:</strong> Shows that as problem size grows, scaling efficiency can remain high even with more processors.</p>
+<p><strong>Bottleneck:</strong> Any part of a system that limits overall performance — often CPU, memory, or network bandwidth.</p>
+
+</section>
+
+<!-- ================= TOOLS ================= -->
+<section>
+<h2>Tools & Frameworks</h2>
+
+<p><strong>Perf:</strong> Linux profiling tool for measuring CPU cycles, cache misses, and branch predictions..</p>
+<p><strong>mpiP:</strong> Lightweight MPI profiler for analyzing communication patterns.</p>
+<p><strong>HPCToolkit:</strong> Advanced profiling and tracing tool for hybrid MPI + OpenMP programs.</p>
+<p><strong>Intel VTune:</strong> PCommercial profiler that visualizes vectorization, cache, and thread performance.</p>
+<p><strong>Slurm:</strong> Popular job scheduler in HPC environments.</p>
+<p><strong>Valgrind:</strong> Memory debugging and leak detection tool.</p>
+<p><strong>ThreadSanitizer:</strong> Detects data races in multithreaded applications.</p>
+
+<h2>Key Formulas Summary</h2>
+
+<table border="1">
+  <tr>
+    <th>Concept</th>
+    <th>Description</th>
+    <th>Formula</th>
+  </tr>
+  <tr>
+
+  </tr>
+  <tr>
+    <td>Speedup (S)</td>
+    <td>How much faster parallel code runs</td>
+    <td>S = T1 / TpS = T1/TP</td>
+  </tr>
+  <tr>
+    <td>Efficiency (E)</td>
+    <td>Resource utilization</td>
+    <td>E = S / PE = S / P</td>
+  </tr>
+   <td>Amdahl's Law</td>
+    <td>Limits of parallel speedup</td>
+    <td>S=1(1−P)+P/NS=(1−P)+P/N1​</td>
+</tr>
+ 
+  <tr>
+    <td>Arithmetic Intensity (AI)</td>
+    <td>FLOPs per byte moved</td>
+    <td>AI=FLOPsBytesAI=BytesFLOPs​</td>
+  </tr>
+ <tr>
+    <td>Roofline Bound</td>
+    <td>Theoretical performance cap/td>
+    <td>P=min⁡(Ppeak,BW×AI)P=min(Ppeak​,BW×AI)​</td>
+  </tr>
+</section>
+
+</main>
+
+</body>
+</html>

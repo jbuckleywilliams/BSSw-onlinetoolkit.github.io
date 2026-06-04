@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning High-Performance Computing with an Online Toolkit</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" href=favicon.ico">
+    <meta name="description" content="An online toolkit for learning high-performance computing, covering profiling, tuning, and optimization techniques for HPC applications.">
+    <link rel="stylesheet" href="git_content.css">
+</head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Teach &amp; Computational Systems Learning Toolkit: A Research-Based Guide to Version Control, Parallel Programming, and High-Performance Optimization</title>
+</head>
+
+<body>
+
+<header>
+    <h1>From Code to Performance</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>
+            <a href="Git_and_Git_Hub.html">Git and Git Hub &#x25BE;</a>
+            <ul class="dropdown">
+                <li><a href="git_vs_github.html">Git vs. Github</a></li>
+                <li><a href="create_account.html">Create a Github Account</a></li>
+                <li><a href="hello_world.html">Hello World on Github</a></li>
+                <li><a href="questions.html">Common Questions Beginners Have</a></li>
+                <li><a href="bonus.html">Bonus: Hello World in Git Commands</a></li>
+        </ul>
+        </li>
+        <li>
+            <a href="high_performance_computing.html">High-Performance Computing &#x25BE;</a>
+            <ul class="dropdown">
+                <li><a href="introduction_to_high_performance_computing.html">Introduction to HPC Optimization</a></li>
+                <li><a href="computing.html">Parallel Computing Foundations</a></li>
+                <li><a href="programming.html">MPI & OpenMP Programming</a></li>
+                <li><a href="performance.html">Performance Optimization</a></li>
+                <li><a href="tools.html">Performance Analysis and Tools</a></li>
+            </ul>
+            </li>
+     <li><a href="Tutorials.html">Tutorials &#x25BE;</a>
+         <ul class="dropdown">
+                <li><a href="tutorials_one.html">Tutorial 1: Advanced Git and Github</a></li>
+                <li><a href="tutorials_two.html">Tutorial 2: Introduction to High-Performance Parallel Programming</a></li>
+                <li><a href="tutorials_three.html">Tutorial 3: Practicing Guide to Using Github Pages for Hosting Projects</a></li>
+                <li><a href="tutorials_four.html">Tutorial 4: Measuring Performance in HPC Applications</a></li>
+            </ul>
+        </li>
+        <li><a href="practice_material.html">Practice Material &#x25BE;</a>
+         <ul class="dropdown">
+                <li><a href="Exercise_one.html">Exercise 1: Git & Github Practice Material</a></li>
+                <li><a href="Exercise_two.html">Exercise 2: HPC Practice Material (MPI) & OpenMP)</a></li>
+                <li><a href="Exercise_three.html">Exercise 3: Advanced Git & Github Collaboration</a></li>
+                <li><a href="Exercise_four.html">Exercise 4: Automating Builds with Github Actions</a></li>
+                <li><a href="Exercise_five.html">Exercise 5: MPI + OpenMP Performance Tuning</a></li>
+                <li><a href="Exercise_six.html">Exercise 6: Profiling and Optimization Challenge</a></li>
+                <li><a href="Exercise_seven.html">Exercise 7: Implement Amdahl's Law Experiment</a></li>
+                <li><a href="Exercise_eight.html">Exercise 8: Data Decomposition in MPI</a></li>
+                <li><a href="Exercise_nine.html">Exercise 9: Mini-Project - HPC Stimulation Pipeline</a></li>
+             </ul>
+            </li>
+        <li><a href="further_learning.html">Further Learning</a></li>
+        <li><a href="glossary.html">Glossary</a></li>
+    </ul>
+</nav>
+
+<main>
+    <!-- Section 2 -->
+    <section>
+        <h3>MPI & OpenMP Programming</h3>
+        <h2>MPI deep dive (practical patterns & performance)</h2>
+
+        <p><strong>Core MPI Concepts</strong></p>
+
+   <ul>
+    <li><code> MPI_Init, MPI_Finalize</code> - start/end.</li>
+    <li><code> MPI_Comm_size, MPI_Comm_rank</code> - rank and communicator size.</li>
+    <li><strong>Point-to-point:</strong><code> MPI_Send, MPI_Recv</code> (blocking)<code> MPI_Isend, MPI_Irecv, MPI_Wait</code> (none-blocking) - send/receive messages.</li>
+    <li><strong>Collectives:</strong><code> MPI_Bcast, MPI_Reduce, MPI_Allreduce, MPI_Alltoall, MPI_Scatter, MPI_Gather</code>.</li>
+    <li><strong>Derived datatypes</strong> — let MPI describe non-contiguous memory layouts to avoid manual packing.</li>
+    <li><strong>Communicators</strong> — partition processes (e.g., <code> MPI_Comm_split, MPI_Cart_create</code>).</li>
+    <li><strong>RMA/One-sided:</strong><code> MPI_Put, MPI_Get, MPI_Win*</code>for remote memory access (potentially lower overheard).</li>
+</li>
+   </ul>
+   
+    </section>
+
+    <section>
+        <h2>Blocking vs non-blocking</h2>
+        <ul>
+            <li>Blocking calls (e.g.,<code>MPI_Send</code>) can block the caller until the message is safe to reuse.</li>
+            <li>Non-blocking (<code>MPI_Isend/MPI_Irecv</code>) allow overlap of communication and computation:</li>
+                <ol type ="1">
+                    <ul style="list-style-type: circle;">
+                        <li>post <code>MPI_Isend</code> and <code>MPI_Irecv</code>.</li>
+                    
+                </ul>
+        </ol>
+            <ol type="1" start="2">
+                <ul style="list-style-type: circle;">
+                        <li>Perform useful computation that does not touch the communicated buffers.</li>
+                </ul>
+            </ol>
+
+            <ol type="1" start="3">
+                <ul style="list-style-type: circle;">
+                               <li>call <code>MPI_Wait</code> to synchronize and ensure completion.</li>
+                </ul>
+            </ol>
+        <p><strong>Non-blocking pattern example:</strong></p>
+        <pre><code>MPI_Isend(sendbuf, count, MPI_DOUBLE, dest, tag, comm, &reqs[0]);</code></pre>
+        <pre><code>MPI_Irecv(recvbuf, count, MPI_DOUBLE, src, tag, comm, &reqs[1]);</code></pre>
+        <pre><code>// do independent work here (compute on other data)</code></pre>
+        <pre><code>MPI_Waitall(2, reqs, MPI_STATUSES_IGNORE);</code></pre>
+
+    </section>
+
+    <section>
+        <h2>Reduce/Allreduce tuning</h2>
+        <ul>
+            <li>Prefer <code>MPI_Allreduce</code> to many point-to-point reduces when you need global results — MPI implementations implement optimized tree or recursive doubling algorithms.</li>
+            <li>For custom reductions use <code>MPI_Op_create</code> with correct commutativity</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Derived datatypes</h2>
+        <p>MPI derived datatypes allow processes to communicate non-contiguous data directly from memory without manually rearranging the data into temporary buffers. Instead of copying elements into a packed array before sending, programmers can define a datatype that describes the memory layout of the data. MPI then interprets the layout and transfers the data correctly between processes. This approach is especially useful in scientific computing, matrix operations, and high-performance computing (HPC) applications where large multidimensional datasets are common.</p>
+        <p>For example, when working with matrices distributed across multiple processors, a process may need to send only a portion of a matrix, such as a row block, column block, or submatrix. Since matrix data is often stored contiguously by rows in memory, sending a column or smaller rectangular region normally requires manually copying the desired elements into a contiguous buffer. MPI derived datatypes eliminate this extra step by allowing the programmer to define patterns such as strided memory layouts using functions like MPI_Type_vector, MPI_Type_indexed, or MPI_Type_create_subarray.</p>
+        <p>Derived datatypes are also valuable when transferring strided arrays, where elements are separated by fixed intervals in memory. A common example is sending every nth element of an array during domain decomposition or stencil computations. Instead of looping through the array and manually packing elements into a communication buffer, MPI can directly interpret the stride pattern and transmit only the required data.</p>
+        <p>In addition, MPI datatypes support the communication of complex structures that combine multiple data types, such as integers, doubles, and character arrays within a C struct. Using <code>MPI_Type_create_struct</code>, programmers can describe the exact memory offsets of each field, enabling MPI to transfer the structure correctly across systems with different architectures or alignment rules. This simplifies code maintenance and improves portability.</p>
+        <P>Another major advantage of derived datatypes is performance optimization. Manual packing and unpacking introduce additional memory copies, which increase CPU overhead and memory bandwidth usage. Derived datatypes can reduce or eliminate these extra copies. Many modern MPI implementations optimize datatype communication internally and may use zero-copy transfer techniques, where data is transmitted directly from application memory to the network interface without intermediate buffers. This can significantly improve communication efficiency, especially for large datasets and distributed-memory supercomputing applications.</P>
+        <p>Overall, MPI derived datatypes improve both programmer productivity and application performance by simplifying communication of irregular data layouts, reducing unnecessary memory operations, and enabling efficient high-performance data transfers in parallel applications.</p>
+    </section>
+
+    <section>
+        <h2>Communicators and topology</h2>
+        <p>Remote Memory Access (RMA), also known as one-sided communication in MPI, enables a process to directly read from or write to the memory of another process without requiring the target process to explicitly participate in the communication operation at that moment. Unlike traditional two-sided communication using MPI_Send and MPI_Recv, RMA separates data movement from synchronization, which can reduce communication overhead and improve performance in certain parallel computing patterns.</p>
+        <p>RMA is particularly useful for applications that involve frequent small updates, shared data regions, distributed counters, ghost cell exchanges, or irregular communication patterns. In these cases, traditional message passing may introduce unnecessary synchronization delays because both the sender and receiver must coordinate every communication event. With RMA, a process can independently access remote memory, which can significantly reduce latency when implemented carefully.</p>
+        <p>The foundation of MPI RMA communication is the MPI window object, created using functions such as <code>MPI_Win_create</code>. A window exposes a region of memory so that other processes in the communicator can access it remotely. Once the window is established, processes can perform one-sided operations like:
+        <ul>    
+            <li><strong><code>MPI_Put</code></strong> — writes data directly into another process’s memory window.</li>
+            <li><strong><code>MPI_Get</code></strong> — retrieves data from another process’s memory window.</li>
+            <li><strong><code>MPI_Accumulate</code></strong> — performs atomic update operations such as sums or increments on remote data.</li>
+        </ul></p>
+        <p>For example, in a distributed simulation, neighboring processes may frequently update boundary or ghost-cell data. Instead of sending many small messages back and forth, a process can use <code>MPI_Put</code> to directly place updated values into the neighboring process’s exposed memory region. This reduces messaging overhead and can improve scalability on large systems.</p>
+        <p>However, synchronization semantics are critical in RMA programming because MPI must ensure memory consistency and correctness. MPI provides both active and passive synchronization models, and the choice depends on the communication pattern used by the application.</p>
+        <p>In active target synchronization, both the origin and target processes explicitly participate in synchronization operations. Functions such as <code>MPI_Win_fence, MPI_Win_post, MPI_Win_start, MPI_Win_complete</code>, and <code>MPI_Win_wait</code> coordinate access to shared windows. This model works well for structured communication phases where all processes synchronize together.</p>
+        <p>Passive target synchronization allows one process to access another process’s memory without the target process actively participating at that moment. Functions like <code>MPI_Win_lock</code> and <code>MPI_Win_unlock</code> are used to establish access epochs. Passive synchronization is especially effective for dynamic or asynchronous communication patterns because it reduces global synchronization overhead and enables greater overlap between communication and computation.</p>
+        <p>Although RMA can improve performance, improper synchronization may lead to race conditions, inconsistent memory states, or reduced scalability. Excessive locking or fine-grained updates can also create contention between processes. Therefore, programmers must carefully design communication patterns to balance synchronization costs with the performance benefits of direct remote memory access.</p>
+        <p>Overall, MPI RMA provides a powerful mechanism for low-latency communication in distributed-memory systems. By using MPI windows, one-sided operations such as <code>MPI_Put</code> and <code>MPI_Get</code>, and appropriate synchronization strategies, applications can achieve more efficient communication patterns and better scalability in high-performance computing environments.</p>
+    </section>
+    <section>
+        <h2>One-sided RMA</h2>
+        <p>False sharing is a performance problem that occurs in shared-memory parallel programming when multiple threads modify different variables that happen to reside on the same CPU cache line. Even though the threads are not accessing the exact same variable, the processor treats the entire cache line as shared data. As a result, the cache coherence protocol repeatedly invalidates and updates the cache line between processor cores, causing unnecessary memory traffic and significantly reducing performance.</p>
+        <p>Modern processors organize memory into cache lines, typically 64 bytes in size. When a thread writes to any variable within a cache line, that entire line becomes invalid in the caches of other processor cores. If another thread then writes to a different variable located in the same cache line, the cache line must again be transferred and synchronized between cores. This repeated movement of cache lines creates contention and slows down parallel execution, especially in high-performance computing (HPC) applications with frequent updates.</p>
+        <p>False sharing commonly appears in parallel loops where each thread updates its own counter, accumulator, or temporary variable stored in adjacent memory locations. For example, if an array of thread-specific counters is stored contiguously in memory, multiple counters may occupy the same cache line. Although each thread accesses only its own element, the hardware still detects writes to the shared cache line and triggers expensive coherence operations.</p>
+        <p>One common solution is to pad per-thread data structures so that each thread’s variables occupy separate cache lines. Padding inserts unused memory between variables to prevent two threads from writing to the same cache line. Another approach is to use arrays indexed by thread ID while ensuring that each element is aligned to the cache-line boundary. In many systems, aligning data to 64-byte boundaries ensures that each thread writes to a distinct cache line, minimizing contention.</p>
+        <p>For example, programmers may define structures with additional padding fields or use compiler directives and alignment attributes such as alignas(64) in C++ or cache-aligned memory allocators. This guarantees that thread-local variables are physically separated in memory, reducing cache invalidation overhead.</p>
+        <p>Eliminating false sharing can dramatically improve scalability and throughput in multithreaded applications because processor cores spend less time synchronizing cache states and more time performing useful computation. This optimization is particularly important in OpenMP programs, numerical simulations, parallel reductions, and other performance-critical workloads where many threads frequently update shared data structures.</p>
+        <p>Overall, understanding false sharing is essential for writing efficient parallel software. By carefully organizing memory layouts, padding thread-local data, and aligning variables to cache-line boundaries, programmers can avoid unnecessary cache coherence traffic and achieve significantly better multicore performance.</p>
+        <section>
+        
+    <h2>OpenMP deep dive (practical patterns & performance)</h2>
+    <p><strong>Important directives & clauses</strong></p>
+        <ul>
+            <li><code>#pragma omp parallel</code> - create a parallel region.</li>
+            <li><code>#pragma omp for</code> (or <code> parallel for</code>) - worksharing loops.</li>
+            <li><code>schedule (static/dynamic/guided)</code> - how iterations map to threads.</li>
+            <li><code>private(var), firstprivate(var), lastprivate(var), shared(var)</code> - data scoping.</li>
+            <li><code>reduction (+:sum)</code> - safe parallel reductions.</li>
+            <li><code>#pragma omp critical/atomic</code>  - synchronization (use atomic when possible for lower overhead).</li>
+            <li><code>#pragma omp simd</code> - hint to vectorize loop body.</li>
+            <li><code>#pragma omp task / taskloop</code> - asynchronous task; good for irregular parallelism.</li>
+            <li><code>collapse(n)</code> - distributed nested loops</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Thread affinity & environment variables</h2>
+        <p>Common environment variables (export before running):</p>
+        <pre><code> export OMP_NUM_THREADS=16        # number of threads per process</pre></code><br>
+        <pre><code> export OMP_PROC_BIND=close      # bind threads close to the master thread</pre></code><br>
+        <pre><code> export OMP_PLACES=cores         # place threads on cores (or sockets)</pre></code>
+
+    <p>Affinity reduces cross-socket traffic and improves cache locality.</p>
+</section>
+
+<section>
+
+    <h2>Avoid false sharing</h2>
+        <p>False sharing is a performance problem that occurs in shared-memory parallel programming when multiple threads modify different variables that happen to reside on the same CPU cache line. Even though the threads are not accessing the exact same variable, the processor treats the entire cache line as shared data. As a result, the cache coherence protocol repeatedly invalidates and updates the cache line between processor cores, causing unnecessary memory traffic and significantly reducing performance.</p>
+        <p>Modern processors organize memory into cache lines, typically 64 bytes in size. When a thread writes to any variable within a cache line, that entire line becomes invalid in the caches of other processor cores. If another thread then writes to a different variable located in the same cache line, the cache line must again be transferred and synchronized between cores. This repeated movement of cache lines creates contention and slows down parallel execution, especially in high-performance computing (HPC) applications with frequent updates.</p>
+        <p>False sharing commonly appears in parallel loops where each thread updates its own counter, accumulator, or temporary variable stored in adjacent memory locations. For example, if an array of thread-specific counters is stored contiguously in memory, multiple counters may occupy the same cache line. Although each thread accesses only its own element, the hardware still detects writes to the shared cache line and triggers expensive coherence operations.</p>
+        <p>One common solution is to pad per-thread data structures so that each thread’s variables occupy separate cache lines. Padding inserts unused memory between variables to prevent two threads from writing to the same cache line. Another approach is to use arrays indexed by thread ID while ensuring that each element is aligned to the cache-line boundary. In many systems, aligning data to 64-byte boundaries ensures that each thread writes to a distinct cache line, minimizing contention.</p>
+        <p>For example, programmers may define structures with additional padding fields or use compiler directives and alignment attributes such as alignas(64) in C++ or cache-aligned memory allocators. This guarantees that thread-local variables are physically separated in memory, reducing cache invalidation overhead.</p>
+        <p>Eliminating false sharing can dramatically improve scalability and throughput in multithreaded applications because processor cores spend less time synchronizing cache states and more time performing useful computation. This optimization is particularly important in OpenMP programs, numerical simulations, parallel reductions, and other performance-critical workloads where many threads frequently update shared data structures.</p>
+        <p>Overall, understanding false sharing is essential for writing efficient parallel software. By carefully organizing memory layouts, padding thread-local data, and aligning variables to cache-line boundaries, programmers can avoid unnecessary cache coherence traffic and achieve significantly better multicore performance.</p>
+    </section>
+
+<section>
+    <h2>OpenMP Tasks</h2>
+    <p>OpenMP tasks provide a flexible way to express parallelism for workloads that are irregular, recursive, or dynamically generated at runtime. Unlike traditional loop-based parallelism, where iterations are divided statically among threads, tasking allows independent units of work to be created and scheduled dynamically by the OpenMP runtime system. This improves load balancing and enables better utilization of processor cores for applications with uneven or unpredictable workloads.</p>
+    <p>In a typical OpenMP tasking model, a parallel region is first created using #pragma omp parallel, which launches a team of worker threads. Inside the parallel region, the #pragma omp single directive ensures that only one thread is responsible for generating tasks, while the remaining threads immediately begin executing available tasks from the shared task queue.</p>
+    <p>For example, in the following structure:</p>
+
+    <code>#pragma omp parallel</code><br>
+    <code>#pragma omp single</code><br>
+    <code>{</code><br>
+        <code>for (i=0; i<N; i++)
+        <code>#pragma omp task firstprivate(i)</code><br>
+        <code>do_work(i);</code><br>
+
+        <code>}</code><br>
+        <code>#pragma omp taskwait</code><br>
+        <code>}</code><br>
+
+<p>the single thread creates one task for each loop iteration. Each task independently executes the <code>do_work(i)</code> function. The <code>firstprivate(i)</code> clause is important because it ensures that each task receives its own private copy of the loop variable <code>i</code> at task creation time. Without this clause, tasks could incorrectly share the same loop variable value, leading to race conditions and incorrect results.</p>
+<p>The <code>#pragma omp taskwait</code> directive forces synchronization by ensuring that all previously created tasks complete before execution continues beyond that point. This is necessary when later computations depend on the results of the generated tasks.</p>
+<p>Task-based parallelism is especially beneficial for recursive algorithms, graph traversals, adaptive mesh refinement, tree structures, and irregular scientific workloads where the amount of work per iteration may vary significantly. Since tasks are scheduled dynamically, idle threads can “steal” tasks from busy threads, improving load balancing and scalability across multicore systems.</p>
+<p>Newer versions of OpenMP introduce the taskloop directive, which simplifies task creation for loops and often reduces runtime overhead compared to manually generating tasks inside a loop. Instead of explicitly creating one task per iteration, taskloop automatically partitions loop iterations into groups of tasks that are scheduled efficiently by the runtime system.</p>
+<p>For example:</p>
+
+<p><code>#pragma omp parallel</code><br>
+<code>#pragma omp single</code><br>
+<code>{</code><br>
+    <code>#pragma omp taskloop</code><br>
+<code>for (i=0; i<N; i++)</code><br>
+<code>}</code><br>
+    <code>do_work(i);</code><br>
+    <code>}</code><br>
+<code>}</code><br></p>
+
+<p>The <code>#pragma omp taskloop</code> construct reduces task-management overhead by grouping iterations together, which can improve performance for fine-grained workloads where creating too many small tasks would otherwise become expensive. It also simplifies code readability and reduces programmer effort.</p>
+<p>Overall, OpenMP tasking enables flexible and scalable parallel execution for dynamic workloads. By using constructs such as <code>task</code>, <code>taskwait</code>, and the newer <code>taskloop</code> directive, developers can efficiently parallelize irregular computations while minimizing synchronization costs and improving processor utilization in high-performance computing applications.</p>
+</section>
+
+<section>
+    <h2>Vectorization</h2>
+    <ul>
+        <li>Guide the complier with <code>#pragma omp simd</code> or <code>__attribute__((aligned(64)))</code>.</li>
+        <li>Ensure loop bodies are simple, no hidden dependencies, and data is aligned.</li>
+        <li>Use complier reports (e.g., <code>-ftree-vectorizer-verbose</code> or Intel reports) to check vectorization.</li>
+    </ul>
+</section>
+</main>
+
+</body>
+</html>

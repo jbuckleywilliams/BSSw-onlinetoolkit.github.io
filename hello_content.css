@@ -1,0 +1,178 @@
+html, body {
+    background-color: #f8f2f2;
+    height: 100%
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+hr {
+    border: none;
+    height: 2px;
+    background-color: #3e1023;
+    margin: 40px auto;
+    width: 80%;
+}
+header {
+    background-color: #3e1023;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header .logo {
+    max-width: 150px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+/* Navigation bar */
+nav {
+    background-color: #444444a1;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    position: relative;
+}
+
+/* Navigation links */
+nav ul li a {
+    display: block;
+    color: #fff;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Dropdown menu */
+nav ul li ul.dropdown {
+    display: none;
+    position: absolute;
+    background-color: #444444;
+    min-width: 200px;
+    text-align: left;
+    top: 100%;
+    left: 0;
+}
+
+nav ul li ul.dropdown li {
+    display: block;
+}
+
+nav ul li ul.dropdown li a {
+    padding: 10px 15px;
+}
+
+/* Show dropdown on hover */
+nav ul li:hover ul.dropdown {
+    display: block;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+main h2 {
+    color: #010000;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    text-align: left;
+    margin-top: 30px;
+}
+
+main h3 {
+    color: #010000;
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+p {
+    color: #0b0b0b;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+
+main p {
+    color: #0b0b0b;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: left;
+}
+main ul, main ol, main li {
+    color: #0b0b0b;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: left;
+    margin-top: 10px;
+}
+
+main pre code {
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #188038;
+    font-size: 16px;
+}
+
+main code {
+    background-color: #f0f0f0;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #188038;
+}
+footer p {
+    font-size: 14px;
+    color: #ece6e6;
+    margin: 10px;
+    padding: 0;
+    line-height: 1.4;
+    text-align: center;
+}
+footer {
+    background-color: #3e1023;
+    color: #ece6e6;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+tr {
+    border-bottom: 1px solid #ddd;
+}
+
+td {
+    padding: 8px;
+    text-align: left;
+}
+
+
+.dropdown-scrollbar
+{
+    height: 50px;
+    overflow: scroll;
+
+}

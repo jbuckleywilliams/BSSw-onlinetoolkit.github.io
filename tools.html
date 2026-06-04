@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning High-Performance Computing with an Online Toolkit</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" href=favicon.ico">
+    <meta name="description" content="An online toolkit for learning high-performance computing, covering profiling, tuning, and optimization techniques for HPC applications.">
+    <link rel="stylesheet" href="git_content.css">
+</head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Teach &amp; Computational Systems Learning Toolkit: A Research-Based Guide to Version Control, Parallel Programming, and High-Performance Optimization</title>
+</head>
+
+<body>
+
+<header>
+    <h1>From Code to Performance</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>
+            <a href="Git_and_Git_Hub.html">Git and Git Hub &#x25BE;</a>
+            <ul class="dropdown">
+                <li><a href="git_vs_github.html">Git vs. Github</a></li>
+                <li><a href="create_account.html">Create a Github Account</a></li>
+                <li><a href="hello_world.html">Hello World on Github</a></li>
+                <li><a href="questions.html">Common Questions Beginners Have</a></li>
+                <li><a href="bonus.html">Bonus: Hello World in Git Commands</a></li>
+        </ul>
+        </li>
+        <li>
+            <a href="high_performance_computing.html">High-Performance Computing &#x25BE;</a>
+            <ul class="dropdown">
+                <li><a href="introduction_to_high_performance_computing.html">Introduction to HPC Optimization</a></li>
+                <li><a href="computing.html">Parallel Computing Foundations</a></li>
+                <li><a href="programming.html">MPI & OpenMP Programming</a></li>
+                <li><a href="performance.html">Performance Optimization</a></li>
+                <li><a href="tools.html">Performance Analysis and Tools</a></li>
+            </ul>
+            </li>
+
+             <li><a href="Tutorials.html">Tutorials &#x25BE;</a>
+         <ul class="dropdown">
+                <li><a href="tutorials_one.html">Tutorial 1: Advanced Git and Github</a></li>
+                <li><a href="tutorials_two.html">Tutorial 2: Introduction to High-Performance Parallel Programming</a></li>
+                <li><a href="tutorials_three.html">Tutorial 3: Practicing Guide to Using Github Pages for Hosting Projects</a></li>
+                <li><a href="tutorials_four.html">Tutorial 4: Measuring Performance in HPC Applications</a></li>
+            </ul>
+        </li>
+        <li><a href="practice_material.html">Practice Material &#x25BE;</a>
+         <ul class="dropdown">
+                <li><a href="Exercise_one.html">Exercise 1: Git & Github Practice Material</a></li>
+                <li><a href="Exercise_two.html">Exercise 2: HPC Practice Material (MPI) & OpenMP)</a></li>
+                <li><a href="Exercise_three.html">Exercise 3: Advanced Git & Github Collaboration</a></li>
+                <li><a href="Exercise_four.html">Exercise 4: Automating Builds with Github Actions</a></li>
+                <li><a href="Exercise_five.html">Exercise 5: MPI + OpenMP Performance Tuning</a></li>
+                <li><a href="Exercise_six.html">Exercise 6: Profiling and Optimization Challenge</a></li>
+                <li><a href="Exercise_seven.html">Exercise 7: Implement Amdahl's Law Experiment</a></li>
+                <li><a href="Exercise_eight.html">Exercise 8: Data Decomposition in MPI</a></li>
+                <li><a href="Exercise_nine.html">Exercise 9: Mini-Project - HPC Stimulation Pipeline</a></li>
+             </ul>
+            </li>
+        <li><a href="further_learning.html">Further Learning</a></li>
+        <li><a href="glossary.html">Glossary</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section> 
+        <h3>Performance Analysis and Tools</h3>
+        <p><strong>Profiling tools</strong></p>
+        <ul>
+            <li><a href="https://www.intel.com/content/www/us/en/develop/tools/oneapi/vtune-profiler.html">Intel VTune Profiler</a>: CPU performance analysis, hotspot detection, threading analysis.</li>
+            <li><a href="https://developer.nvidia.com/nsight-systems">NVIDIA Nsight Systems</a>: GPU performance analysis, kernel profiling, timeline visualization.</li>
+            <li><a href="https://www.perfsuite.io/">Perfsuite</a>: Open-source performance analysis tools for HPC applications.</li>
+        </ul>
+
+        <p><strong>Debugging tools</strong></p>
+        <ul>
+            <li><a href="https://www.gnu.org/software/gdb/">GDB</a>: GNU Debugger for C/C++ applications.</li>
+            <li><a href="https://www.valgrind.org/">Valgrind</a>: Memory debugging and profiling tool.</li>
+            <li><a href="https://www.intel.com/content/www/us/en/develop/tools/oneapi/inspector.html">Intel Inspector</a>: Memory and thread error detection.</li>
+        </ul>
+
+         <p><strong>Best practices for using tools</strong></p>
+         <ul>
+             <li>Start with profiling to identify hotspots before optimizing code.</li>
+             <li>Use debugging tools to ensure correctness before performance tuning.</li>
+             <li>Iteratively profile and optimize to track performance improvements.</li>
+         </ul>
+    </section>
+
+    <section>
+        <h2>Performance measurement & models</h2>
+        <p><strong>Baseline first</strong></p>
+        <ol type ="1">
+            <li>Get a reproducible baseline.</li>
+        </ol>
+        <ol type ="2">
+            <li>Time critical kernels (microbenchmarks) and full runs.</li>
+        </ol>
+        <p><strong>Strong and weak scaling</strong></p>
+        <ul>
+            <li><strong>Strong scaling</strong>:fix total problem size, increase processors. Measure time T(P). </li>
+            <li><strong>Weak scaling</strong>: fix work per processor, increase processors. Measure time T(P). </li>
+        </ul>
+                </ul>
+    </section>
+
+    <section>
+        <h2>Strong Scaling Efficiency</h2>
+        <p>
+            Efficiency formula:
+            <br>
+            <strong>Estrong(P) = T(1) / (P × T(P))</strong>
+        </p>
+
+        <p><strong>Example:</strong></p>
+        <ul>
+            <li>T(1) = 100 seconds</li>
+            <li>P = 8 processors</li>
+            <li>T(8) = 20 seconds</li>
+        </ul>
+
+        <p>
+            Compute:
+            <br> P × T(P) = 8 × 20 = 160
+            <br> Efficiency = 100 / 160 = 0.625 = <strong>62.5%</strong>
+        </p>
+    </section>
+
+    <section>
+        <h2>Weak Scaling Efficiency</h>
+        <p>
+            Weak scaling keeps workload per processor constant.
+        </p>
+
+        <p>
+            Efficiency formula:
+            <br>
+            Eweak(P) = T(1) / T(P)
+        </p>
+
+        <p>
+            Ideal case: runtime stays constant as processors increase.
+        </p>
+    </section>
+
+    <section>
+        <h2>Roofline Model</h2>
+        <p>
+            The Roofline model connects performance (GFLOP/s) to arithmetic intensity.
+        </p>
+
+        <ul>
+            <li><strong>Arithmetic Intensity</strong> = FLOPs / Bytes moved</li>
+            <li><strong>Memory-bound:</strong> low intensity</li>
+            <li><strong>Compute-bound:</strong> high intensity</li>
+        </ul>
+
+        <p><strong>Matrix Multiplication Example:</strong></p>
+        <p>
+            FLOPs ≈ 2N³ <br>
+            Memory ≈ 3N² elements <br>
+            Arithmetic Intensity ≈ N / 12
+        </p>
+
+        <p>
+            Larger N → higher intensity → better performance potential.
+        </p>
+    </section>
+
+    <section>
+        <h3>Compiler Flags & Build Options</h3>
+
+        <h2>Best Practices</h2>
+        <ul>
+            <li>Production: <code>-O3 -march=native -funroll-loops -fopenmp</code></li>
+            <li>Debugging: <code>-g -O0</code></li>
+            <li>Reproducibility: avoid aggressive floating-point reordering</li>
+        </ul>
+
+        <h2>Compile Examples</h2>
+        <pre><code>mpicc -O3 -march=native -o app app.c</code></pre>
+
+        <pre><code>mpicc -O3 -march=native -fopenmp -o hybrid_app hybrid.c</code></pre>
+    </section>
+
+    <section>
+        <h2>Runtime Environment</h2>
+        <ul>
+            <li><code>OMP_NUM_THREADS</code>: number of threads</li>
+            <li><code>OMP_PROC_BIND</code>: thread binding</li>
+            <li><code>OMP_PLACES</code>: placement strategy</li>
+            <li><code>MKL_NUM_THREADS</code>: math library threading</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Profiling & Debugging Tools</h2>
+        <ul>
+            <li><strong>perf</strong>: CPU hotspot profiling</li>
+            <li><strong>gprof</strong>: function-level profiling</li>
+            <li><strong>PAPI</strong>: hardware counters</li>
+            <li><strong>VTune</strong>: advanced performance analysis</li>
+            <li><strong>Valgrind</strong>: memory debugging</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Matrix Multiplication Optimization</h3>
+
+        <h2>Naive Version</h3>
+        <pre><code>for(i=0;i&lt;N;i++)</pre></code>
+  <pre><code>for(j=0;j&lt;N;j++) {</pre></code>
+    <pre><code>double sum=0.0;</pre></code>
+     <pre><code>for(k=0;k&lt;N;k++)</pre></code>
+       <pre><code>sum += A[i][k]*B[k][j];</pre></code>
+    <pre><code>C[i][j]=sum;</pre></code>
+<pre><code>}</code></pre>
+
+        <p>Problem: poor cache usage.</p>
+
+        <h2>Tiled Version</h2>
+        <pre><code>for(ii=0; ii&lt;N; ii+=T)</code></pre>
+  <pre><code>for(jj=0; jj&lt;N; jj+=T)</code></pre>
+    <pre><code>for(kk=0; kk&lt;N; kk+=T)</code></pre>
+      <pre><code>for(i=ii; i&lt;min(ii+T,N); ++i)</code></pre>
+        <pre><code>for(k=kk; k&lt;min(kk+T,N); ++k)</code></pre>
+          <pre><code>for(j=jj; j&lt;min(jj+T,N); ++j)</code></pre>
+            <pre><code>C[i][j] += A[i][k]*B[k][j];</code></pre>
+
+        <h2>OpenMP Parallelization</h2>
+        <pre><code>#pragma omp parallel for collapse(2)</code></pre>
+         <pre><code>for(ii=0; ii&lt;N; ii+=T)</code></pre>
+          <pre><code>for(jj=0; jj&lt;N; jj+=T)</code></pre>
+
+        <h2>Vectorization</h2>
+        <pre><code>#pragma omp simd</code></pre>
+         <pre><code>for(j = jj; j &lt; min(jj + T, N); ++j)</code></pre>
+          <pre><code>C[i][j] += A[i][k] * B[k][j];</code></pre>
+        <pre><code>for(j = jj; j &lt; min(jj + T, N); ++j)</code></pre>
+          <pre><code>C[i][j] += A[i][k] * B[k][j];</code></pre>
+    </section>
+
+    <section>
+        <h2>MPI Distribution</h2>
+        <pre><code>MPI_Init(&argc, &argv);</code></pre>
+        <pre><code>MPI_Comm_rank(MPI_COMM_WORLD, &rank);</code></pre>
+        <pre><code>MPI_Comm_size(MPI_COMM_WORLD, &size);</code></pre>
+
+         <p>
+            Distribute rows of C across ranks:</p>
+
+<pre><code>int rows_per_rank = N / size;</code></pre>
+<pre><code>int start_row = rank * rows_per_rank;</code></pre>
+
+        <p>
+            Use <code>MPI_Gather</code> or <code>MPI_Reduce</code> to collect results.
+        </p>
+    </section>
+
+    <section>
+        <h2>Performance Metrics</h2>
+        <ul>
+            <li><strong>Speedup:</strong> S(P) = T(1) / T(P)</li>
+            <li><strong>Efficiency:</strong> E(P) = S(P) / P</li>
+        </ul>
+    </section>
+
+</main>
+
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Learning High-Performance Computing with an Online Toolkit</title>
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="description" content="An online toolkit for learning high-performance computing, covering profiling, tuning, and optimization techniques for HPC applications.">
+    <link rel="stylesheet" href="git_content.css">
+
+</head>
+
+<body>
+
+<header>
+    <h1>From Code to Performance</h1>
+</header>
+<nav>
+    <ul>
+         <li><a href="index.html">Home</a></li>
+        <li>
+             <a href="Git_and_Git_Hub.html">Git and Git Hub &#x25BE;</a>
+            <ul class="dropdown">
+                <li><a href="what_git_and_git_hub.html">What is Git and GitHub?</a></li>
+                <li><a href="git_vs_github.html">Git vs. Github</a></li>
+                <li><a href="create_account.html">Create a Github Account</a></li>
+                <li><a href="hello_world.html">Hello World on Github</a></li>
+                <li><a href="questions.html">Common Questions Beginners Have</a></li>
+                <li><a href="bonus.html">Bonus: Hello World in Git Commands</a></li>
+        </ul>
+        </li>
+        <li>
+            <a href="high_performance_computing.html">High-Performance Computing &#x25BE;</a>
+            <ul class="dropdown">
+                <li><a href="introduction_to_high_performance_computing.html">Introduction to HPC Optimization</a></li>
+                <li><a href="computing.html">Parallel Computing Foundations</a></li>
+                <li><a href="programming.html">MPI & OpenMP Programming</a></li>
+                <li><a href="performance.html">Performance Optimization</a></li>
+                <li><a href="tools.html">Performance Analysis and Tools</a></li>
+            </ul>
+        </li>
+     <li><a href="Tutorials.html">Tutorials &#x25BE;</a>
+         <ul class="dropdown">
+                <li><a href="tutorials_one.html">Tutorial 1: Advanced Git and Github</a></li>
+                <li><a href="tutorials_two.html">Tutorial 2: Introduction to High-Performance Parallel Programming</a></li>
+                <li><a href="tutorials_three.html">Tutorial 3: Practicing Guide to Using Github Pages for Hosting Projects</a></li>
+                <li><a href="tutorials_four.html">Tutorial 4: Measuring Performance in HPC Applications</a></li>
+            </ul>
+        </li>
+        <li><a href="practice_material.html">Practice Material &#x25BE;</a>
+         <ul class="dropdown">
+                <li><a href="Exercise_one.html">Exercise 1: Git & Github Practice Material</a></li>
+                <li><a href="Exercise_two.html">Exercise 2: HPC Practice Material (MPI) & OpenMP)</a></li>
+                <li><a href="Exercise_three.html">Exercise 3: Advanced Git & Github Collaboration</a></li>
+                <li><a href="Exercise_four.html">Exercise 4: Automating Builds with Github Actions</a></li>
+                <li><a href="Exercise_five.html">Exercise 5: MPI + OpenMP Performance Tuning</a></li>
+                <li><a href="Exercise_six.html">Exercise 6: Profiling and Optimization Challenge</a></li>
+                <li><a href="Exercise_seven.html">Exercise 7: Implement Amdahl's Law Experiment</a></li>
+                <li><a href="Exercise_eight.html">Exercise 8: Data Decomposition in MPI</a></li>
+                <li><a href="Exercise_nine.html">Exercise 9: Mini-Project - HPC Stimulation Pipeline</a></li>
+             </ul>
+            </li>
+        <li><a href="further_learning.html">Further Learning</a></li>
+        <li><a href="glossary.html">Glossary</a></li>
+    </ul>
+</nav>
+
+<main>
+<section>
+    <h3>Git vs. GitHub</h3>
+    <p>Git is a distributed version control system (DVCS). It’s a tool you install and run locally on your computer.
+    </p>
+    <ul>
+        <li><strong>Purpose:</strong> Track changes to files (usually code) and allow multiple people to work on the same project without overwriting each other’s work.</li>
+        <li><strong>Scope:</strong> Works completely offline. Every developer has the entire project history on their machine.</li>
+        <li><strong>Origin:</strong> Created by Linus Torvalds in 2005 to help manage the Linux kernel.</li>
+    </ul>
+    <p> Key features:</p>
+    <ol type ="1">
+        <li><strong>Snapshots, Not Diffs:</strong></li>
+        <ul style="list-style-type: circle;">
+            <li>Git doesn’t just save file differences (like older systems).</li>
+            <li>Instead, every commit is a <strong>snapshot</strong> of your entire project at that moment in time.</li>
+            <li>This makes rollbacks or branching faster and safer.</li>
+    </ol>
+    <ol type="1" start="2">
+        <li><strong>Branching and Merging:</strong></li>
+        <ul style="list-style-type: circle;">
+            <li>Branches in Git are lightweight and easy to create.</li>
+            <li>Branches can be merged back into the main codebase when ready.</li>
+            <li>Developers can branch off, test ideas, then merge successful work into the main line.</li>
+    </ol>
+        </ul>
+    <p>Example:</p>
+    <pre><code>git checkout -b new-feature # Work on new feature</code></pre>
+    <pre><code>git commit -m "Added new feature"</code></pre>
+    <pre><code>git checkout main</code></pre>
+    <pre><code>git merge new-feature</code></pre>
+    <ol type="1" start="3">
+        <li><strong>Distributed by Design:</strong></li>
+        <ul style="list-style-type: circle;">
+            <li>Unlike centralized systems (like SVN), Git allows every developer to have a <strong>full copy</strong> of the repository (with history).</li>
+            <li>This means: You don’t need internet access to commit and you're less dependent on a single server</li>
+    </ol>
+</section>
+<br><br>
+<section>
+    <h2>Analogy: Git vs GitHub</h2>
+    <p>Imagine your are writing a novel:</p>
+    <li><strong>Git</strong> is like Microsoft Word with track changes:</li>
+    <ul style ="list-style-type: circle;">
+        <li>You save versions of your draft.</li>
+        <li>You can create alternate versions (branches).</li>
+        <li>You can merge changes from different versions.</li>
+        <li>You can revert to earlier drafts</li>
+    </ul>
+    <li><strong>GitHub</strong> is like Google Docs:</li>
+    <ul style="list-style-type: circle;">
+    <li>Your drafts are stored online,</li>
+    <li>You can share with collaborators easily.</li>
+    <li>Reviewers can comment, suggest changes, and merge edits into the main draft.</li>
+    </ul>
+<p><strong>Summary:</strong></p>
+<ul>
+<li> Git + the tool for version control (install on your machine)</li>
+<li> Github + the online service for collaboration, hosting, and visibility</li>
+</ul>
+</section>
+<section>
+    <h2>Git Without GitHub</h2>
+    <p>You can use Git entirely on your local machine without ever touching GitHub. For example:</p>
+<pre><code>git init                             # Initialize a new Git repository</code></pre>
+<pre><code>git add .                            # Stage all changes for commit</code></pre>
+<pre><code>git commit -m "Initial commit"       # Commit changes with a Message</code></pre>
+<pre><code>git branch feature-branch            # Create a new branch</code></pre>
+<pre><code>git checkout feature-branch          # Switch to the new branch</code></pre>
+<pre><code>git merge feature-branch             # Merge changes back to main branch</code></pre>
+<pre><code>git log                              # View commit history
+</code></pre>
+<p>This creates a local repository - no internet needed.</p>
+<p>You can also set up your own Git server using alternatives like:</p>
+<ul>
+    <li><strong>GitLab:</strong> An open-source platform that can be self-hosted or used as a cloud service.</li>
+    <li><strong>Bitbucket:</strong> A Git hosting service by Atlassian, with both cloud and self-hosted options.</li>
+    <li><strong>Gitea</strong> or <strong>SourceHut</strong>: Lightweight, self-hosted Git services.</li>
+    </ul>
+</section>
+<br><br>
+<section>
+    <h2>GitHub Without Git (Limited Use)</h2>
+    <p>Technically, you can use Github's web interface to:</p>
+<ul>
+    <li>Create and edit files directly in the browser.</li>
+    <li>Use the built-in file editor to make small changes.</li>
+    <li>Manage issues, pull requests, and project boards.</li>
+</ul>
+<p>But without Git, you lose the power of:</p>
+<ul>
+    <li>Version control history and branching.</li>
+    <li>Local development and testing.</li>
+    <li>Offline work and granular commits.</li>
+    <li>Integration with other tools and workflows.</li>
+<p>So while GitHub adds convenience, Git is the <strong>engine</strong> powering everything.</p>
+</ul>
+
+<p><strong>Bottom Line:</strong></p>
+<ul>
+    <li>Git is the version control system you use on your computer.</li>
+    <li>GitHub is the online platform that hosts Git repositories and facilitates collaboration.</li>
+    <li>You can use Git without GitHub, but GitHub relies on Git to function.</li>
+</ul>
+</section>
+</main>
+
+</body>
+</html>

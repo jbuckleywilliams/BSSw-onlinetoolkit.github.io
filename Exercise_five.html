@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Learning High-Performance Computing with an Online Toolkit</title>
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="description" content="An online toolkit for learning high-performance computing, covering profiling, tuning, and optimization techniques for HPC applications.">
+    <link rel="stylesheet" href="git_content.css">
+
+</head>
+
+<body>
+
+<header>
+    <h1>From Code to Performance</h1>
+</header>
+<nav>
+    <ul>
+         <li><a href="index.html">Home</a></li>
+        <li>
+             <a href="Git_and_Git_Hub.html">Git and Git Hub &#x25BE;</a>
+            <ul class="dropdown">
+                <li><a href="what_git_and_git_hub.html">What is Git and GitHub?</a></li>
+                <li><a href="git_vs_github.html">Git vs. Github</a></li>
+                <li><a href="create_account.html">Create a Github Account</a></li>
+                <li><a href="hello_world.html">Hello World on Github</a></li>
+                <li><a href="questions.html">Common Questions Beginners Have</a></li>
+                <li><a href="bonus.html">Bonus: Hello World in Git Commands</a></li>
+        </ul>
+        </li>
+        <li>
+            <a href="high_performance_computing.html">High-Performance Computing &#x25BE;</a>
+            <ul class="dropdown">
+                <li><a href="introduction_to_high_performance_computing.html">Introduction to HPC Optimization</a></li>
+                <li><a href="computing.html">Parallel Computing Foundations</a></li>
+                <li><a href="programming.html">MPI & OpenMP Programming</a></li>
+                <li><a href="performance.html">Performance Optimization</a></li>
+                <li><a href="tools.html">Performance Analysis and Tools</a></li>
+            </ul>
+        </li>
+     <li><a href="Tutorials.html">Tutorials &#x25BE;</a>
+         <ul class="dropdown">
+                <li><a href="tutorials_one.html">Tutorial 1: Advanced Git and Github</a></li>
+                <li><a href="tutorials_two.html">Tutorial 2: Introduction to High-Performance Parallel Programming</a></li>
+                <li><a href="tutorials_three.html">Tutorial 3: Practicing Guide to Using Github Pages for Hosting Projects</a></li>
+                <li><a href="tutorials_four.html">Tutorial 4: Measuring Performance in HPC Applications</a></li>
+            </ul>
+        </li>
+        <li><a href="practice_material.html">Practice Material &#x25BE;</a>
+         <ul class="dropdown">
+                <li><a href="Exercise_one.html">Exercise 1: Git & Github Practice Material</a></li>
+                <li><a href="Exercise_two.html">Exercise 2: HPC Practice Material (MPI) & OpenMP)</a></li>
+                <li><a href="Exercise_three.html">Exercise 3: Advanced Git & Github Collaboration</a></li>
+                <li><a href="Exercise_four.html">Exercise 4: Automating Builds with Github Actions</a></li>
+                <li><a href="Exercise_five.html">Exercise 5: MPI + OpenMP Performance Tuning</a></li>
+                <li><a href="Exercise_six.html">Exercise 6: Profiling and Optimization Challenge</a></li>
+                <li><a href="Exercise_seven.html">Exercise 7: Implement Amdahl's Law Experiment</a></li>
+                <li><a href="Exercise_eight.html">Exercise 8: Data Decomposition in MPI</a></li>
+                <li><a href="Exercise_nine.html">Exercise 9: Mini-Project - HPC Stimulation Pipeline</a></li>
+             </ul>
+            </li>
+        <li><a href="further_learning.html">Further Learning</a></li>
+        <li><a href="glossary.html">Glossary</a></li>
+    </ul>
+</nav>
+
+
+<main>
+
+<section>
+    <h3>Exercise 5: MPI + OpenMP Performance Tuning</h3>
+    <p><strong>Objective:</strong>: Investigate how different thread/process combinations affect runtime.</p>
+    <p><strong>Tasks:</strong></p>
+
+    <ol type ="1">
+        <li>Modify your hybrid sum program to record timestamps using MPI_Wtime(). Run with varying configurations:</li>
+    </ol>
+
+    <ol type ="1" start="2">
+        <li>Analyze the results to identify trends in performance. Consider factors like load balancing, communication overhead, and thread contention.</li><table border="1">
+  <tr>
+    <th>MPI Ranks</th>
+    <th>OpenMP Threads</th>
+    <th>Expected Bahavior</th>
+  </tr>
+  <tr>
+
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>1</td>
+    <td>Baseline MPI only</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>2</td>
+    <td>Hybrid moderate</td>
+  </tr>
+   <td>1</td>
+    <td>4</td>
+    <td>OpenMP only</td>​</td>
+</tr>
+ 
+  <tr>
+    <td>4</td>
+    <td>4</td>
+    <td>Fully hybrid​</td>
+    </tr>
+</table>
+
+<ol type ="1" start="3">
+    <li>Collect runtimes and plot execution time vs. configurations.</li>
+</ol>
+
+<ol type ="1" start="4">
+    <li>Discuss which configuration achieved the best performance and why (hint: consider NUMA and communication cost).</li>
+</ol>
+
+<p><strong>Command to Practice</strong></p>
+<p><code>export OMP_NUM_THREADS=<n>, mpirun -np <r> ./hybrid_sum</code></p>
+
+</section>

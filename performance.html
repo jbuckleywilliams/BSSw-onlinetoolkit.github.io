@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning High-Performance Computing with an Online Toolkit</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" href=favicon.ico">
+    <meta name="description" content="An online toolkit for learning high-performance computing, covering profiling, tuning, and optimization techniques for HPC applications.">
+    <link rel="stylesheet" href="git_content.css">
+</head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Teach &amp; Computational Systems Learning Toolkit: A Research-Based Guide to Version Control, Parallel Programming, and High-Performance Optimization</title>
+</head>
+
+<body>
+
+<header>
+    <h1>From Code to Performance</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>
+            <a href="Git_and_Git_Hub.html">Git and Git Hub &#x25BE;</a>
+            <ul class="dropdown">
+                <li><a href="git_vs_github.html">Git vs. Github</a></li>
+                <li><a href="create_account.html">Create a Github Account</a></li>
+                <li><a href="hello_world.html">Hello World on Github</a></li>
+                <li><a href="questions.html">Common Questions Beginners Have</a></li>
+                <li><a href="bonus.html">Bonus: Hello World in Git Commands</a></li>
+        </ul>
+        </li>
+        <li>
+            <a href="high_performance_computing.html">High-Performance Computing &#x25BE;</a>
+            <ul class="dropdown">
+                <li><a href="introduction_to_high_performance_computing.html">Introduction to HPC Optimization</a></li>
+                <li><a href="computing.html">Parallel Computing Foundations</a></li>
+                <li><a href="programming.html">MPI & OpenMP Programming</a></li>
+                <li><a href="performance.html">Performance Optimization</a></li>
+                <li><a href="tools.html">Performance Analysis and Tools</a></li>
+            </ul>
+            </li>
+     <li><a href="Tutorials.html">Tutorials &#x25BE;</a>
+         <ul class="dropdown">
+                <li><a href="tutorials_one.html">Tutorial 1: Advanced Git and Github</a></li>
+                <li><a href="tutorials_two.html">Tutorial 2: Introduction to High-Performance Parallel Programming</a></li>
+                <li><a href="tutorials_three.html">Tutorial 3: Practicing Guide to Using Github Pages for Hosting Projects</a></li>
+                <li><a href="tutorials_four.html">Tutorial 4: Measuring Performance in HPC Applications</a></li>
+            </ul>
+        </li>
+        <li><a href="practice_material.html">Practice Material &#x25BE;</a>
+         <ul class="dropdown">
+                <li><a href="Exercise_one.html">Exercise 1: Git & Github Practice Material</a></li>
+                <li><a href="Exercise_two.html">Exercise 2: HPC Practice Material (MPI) & OpenMP)</a></li>
+                <li><a href="Exercise_three.html">Exercise 3: Advanced Git & Github Collaboration</a></li>
+                <li><a href="Exercise_four.html">Exercise 4: Automating Builds with Github Actions</a></li>
+                <li><a href="Exercise_five.html">Exercise 5: MPI + OpenMP Performance Tuning</a></li>
+                <li><a href="Exercise_six.html">Exercise 6: Profiling and Optimization Challenge</a></li>
+                <li><a href="Exercise_seven.html">Exercise 7: Implement Amdahl's Law Experiment</a></li>
+                <li><a href="Exercise_eight.html">Exercise 8: Data Decomposition in MPI</a></li>
+                <li><a href="Exercise_nine.html">Exercise 9: Mini-Project - HPC Stimulation Pipeline</a></li>
+             </ul>
+            </li>
+        <li><a href="further_learning.html">Further Learning</a></li>
+        <li><a href="glossary.html">Glossary</a></li>
+    </ul>
+</nav>
+
+<main>
+    <!-- Section 2 -->
+    <section>
+        <h3>MPI and OpenMP Programming</h3>
+        <h2>Hybrid MPI + OpenMP: mapping & best practices</h2>
+
+        <p><strong>Why hybrid?</strong></p>
+
+   <ul>
+        <li>Reduce number of MPI ranks to decrease expensive per-rank memory and communication.</li>
+        <li>Use OpenMP threads to exploit many cores per socket and to be NUMA-aware.</li>
+   </ul>
+
+   <p><strong>Mapping strategy</strong></p>
+   
+   <ul>
+        <li><strong>One MPI rank per socket (NUMA domain)</strong>, which <code>nthreads = core_per_socket</code>.</li>
+        <li>Or <strong>one MPI rank per node</strong>with fewer threads to avoid contention if memory bandwith per thread is limited.</li>
+    </ul>
+    
+    <p>Example run (OpenMPI example):</p>
+    <pre><code>export OMP_NUM_THREADS=24</code></pre>
+    <pre><code>mpirun -np 4 --map-by socket --bind-to core ./my_app</pre></code>
+    <p>This run 2 MPI ranks (one per socket) and each rank spawns 24 OpenMP threads (bind to cores).</p>
+
+    <p><strong>Overlap communication with computation</strong></p>
+    <p>Use<code>MPI_Isend/MPI_Irecv</code> inside OpenMP parallel sections and make sure the computation that follows does not touch the send/recv buffers.</p>
+
+    <p><strong>Hybrid pattern:</strong></p>
+    <code>#pragma omp parallel</code>
+    <code>{</code>
+    <code>  // split threads into communication and compute roles or let all threads compute</code>
+    <code>  // post nonblocking MPI communications (outside or inside parallel region)</code>
+    <code>  // compute locally</code>
+    <code>  // wait for communications</code>
+    <code>}</code>
+<p>Notes:</p>
+<ul>
+    <li>Some MPI libraries are not fully thread-safe at <code>MPI_THREAD_MULTIPLE</code> levels; use <code>MPI_Init_thread</code> and test support.</li>
+</ul>
+
+</section>
+
+<section>
+    <h2>Algorithmic & data-level optimizations (practical recipes)</h2>
+    <ol type="1">
+        <li><strong>Choose the right algorithms</strong></li>
+        <p>Algorithmic complexity always dominates micro-optimizations. If an O(N^2) algorithm can be replaced by O(N log N) or O(N), do that first.</p>
+    </ol>
+    <ol type="1" start="2">
+        <li><strong>Data locality and cache blocking (tiling)</strong></li>
+        <p>For matrix operations, reorganize loops to operate on cache-sized tiles so data reused in cache before eviction.</p>
+        <p>Naive triple loop for matrix multiply:</p>
+        <code>for(i) for(j) for(k) C[i][j] += A[i][k] * B[k][j];</code>
+        <p>Cache-blocked version processes subblocks of size B to keep working set resident.</p>
+    <ol type="1" start="3">
+        <li><strong>Vectorization</strong></li>
+         <ul style="list-style-type: circle;">
+             <li>Use <code> -O3 -march=native</code> and <code>#pragma omp simd</code> where appropriate.</li>
+             <li>Ensure contiguous memory access in the inner loop and avoid pointer (use <code>restrict</code> in C/C++).</li>
+         </ul>
+    </ol>
+    <ol type="1" start="4">
+        <li><strong>Reduce communication</strong></li>
+        <ul style="list-style-type: circle;"
+            <li>Aggregate small messages into larger ones.</li>
+            <li>Use collectives optimized by the MPI implementation.</li>
+            <li>Reorganize computation to reduce frequency of global synchronizations.</li>
+    </ul>
+    </ol>
+
+    <ol type ="1" start="5">
+        <li><strong>Overlap computation & communication</strong></li>
+        <ul style="list-style-type: circle;"
+            <li>Post non-blocking sends/receives early, compute independent work, then complete.</li>
+    </ul>
+    </ol>
+
+    <ol type="1" start="6">
+        <li><strong>Avoid synchronizations hot spots</strong></li>
+        <ul style="list-style-type: circle;"
+            <li>Replace global barriers with per-node or per-team synchronization if possible.</li>
+            <li>Use reductions instead of critical sections where applicable.</li>
+    </ul>
+    </ol>   
+    
+</section>
+
+<section>
+    <h2>Compiler and Runtime Optimizations</h2>
+    <p><strong>Compiler flags:</strong></p>
+<ul>
+    <li><code>-O3</code> for aggressive optimization.</li>
+    <li><code>-fopenmp</code> for OpenMP support.</li>
+    <li><code>-ffast-math</code> only if floating-point precision can be relaxed.</li>
+    <li><code>-funroll-loops</code> for vectorization.</li>
+</ul>
+<p><strong>Runtime settings:</strong></p>
+<pre><code>export OMP_NUM_THREADS=8</code></pre>
+<pre><code>export OMP_PROC_BIND=close</code></pre>
+<pre><code>export OMP_PLACES=cores</code></pre>
+<pre><code>mpirun -np 4 --map-by socket ./hybird_matrix</pre></code>
+    <p>Use environment variables to control thread placement and binding for better performance. The number of threads and binding strategy crucial for NUMA performance.</p>
+</section>
+
+<section>
+    <h2>Advanced Optimizations Tips</h2>
+    <ol type ="1">
+        <li><strong>Cache blocking:</strong>ensure your tiles fit in L1/L2/L3 caches to reduce memory traffic.</li>
+</ol>
+<ol type="1" start="2">
+    <li><strong>Loop fusion:</strong> combine multiple loops accessing the same data to increase temporal locality.</li>
+</ol>
+<ol type="1" start="3">
+    <li><strong>Asynchonous MPI:</strong>overlap computation and communication to reduce idle time.</li>
+</ol>
+<ol type="1" start="4">
+    <li><strong>Thread-private buffers:</strong> avoid contention in reductions or temporary arrays.</li>
+</ol>
+<ol type="1" start="5">
+    <li><strong>Hybrid tuning</strong> experiment with MPI ranks per node vs threads per rank to balance memory and bandwidth.</li>
+</section>
+
+<section>
+    <h2>Summary</h2>
+    <ol type="1">
+        <li><strong>Optimize locally first:</strong> cache blocking, vectorization, OpenMP threading.</li>
+    </ol>
+    <ol type="1" start="2">
+        <li><strong>Scale across nodes:</strong> use MPI for distribution and non-blocking communication.</li>
+    </ol>
+    <ol type="1" start="3">
+        <li><strong>Profile and analyze:</strong> identify hotsopts, comminication delays, menory inefficiencies.</li>
+    </ol>
+    <ol type="1" start="4">
+        <li><strong>Iterate:</strong> adjust loop tiling, thread mapping, MPI ranks for maxinal efficiency.</li>
+    </ol>
+    <ol type="1" start="5">
+        <li><strong>Validate correctness</strong> ensure numerical results are consistent and race conditions are avoided.</li>
+    </ol>
+    <p><strong>End Result:</strong> An HPC program that scales efficiently across cores and nodes, uses memory hierarchies effectively, and minimizes communication overhead - the full spectrum of MPI + OpenMP optimizations.</p>
+</section>
+
+</main>
+
+</body>
+</html>

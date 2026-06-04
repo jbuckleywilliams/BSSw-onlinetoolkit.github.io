@@ -94,3 +94,20 @@ main a {
     text-decoration: none;
     border-radius: 5px;
 }
+
+main pre code {
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #188038;
+    font-size: 16px;
+}
+
+main code {
+    background-color: #f0f0f0;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #188038;
+}
+

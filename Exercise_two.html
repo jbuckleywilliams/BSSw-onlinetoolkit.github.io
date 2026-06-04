@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Learning High-Performance Computing with an Online Toolkit</title>
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="description" content="An online toolkit for learning high-performance computing, covering profiling, tuning, and optimization techniques for HPC applications.">
+    <link rel="stylesheet" href="git_content.css">
+
+</head>
+
+<body>
+
+<header>
+    <h1>From Code to Performance</h1>
+</header>
+<nav>
+    <ul>
+         <li><a href="index.html">Home</a></li>
+        <li>
+             <a href="Git_and_Git_Hub.html">Git and Git Hub &#x25BE;</a>
+            <ul class="dropdown">
+                <li><a href="what_git_and_git_hub.html">What is Git and GitHub?</a></li>
+                <li><a href="git_vs_github.html">Git vs. Github</a></li>
+                <li><a href="create_account.html">Create a Github Account</a></li>
+                <li><a href="hello_world.html">Hello World on Github</a></li>
+                <li><a href="questions.html">Common Questions Beginners Have</a></li>
+                <li><a href="bonus.html">Bonus: Hello World in Git Commands</a></li>
+        </ul>
+        </li>
+        <li>
+            <a href="high_performance_computing.html">High-Performance Computing &#x25BE;</a>
+            <ul class="dropdown">
+                <li><a href="introduction_to_high_performance_computing.html">Introduction to HPC Optimization</a></li>
+                <li><a href="computing.html">Parallel Computing Foundations</a></li>
+                <li><a href="programming.html">MPI & OpenMP Programming</a></li>
+                <li><a href="performance.html">Performance Optimization</a></li>
+                <li><a href="tools.html">Performance Analysis and Tools</a></li>
+            </ul>
+        </li>
+     <li><a href="Tutorials.html">Tutorials &#x25BE;</a>
+         <ul class="dropdown">
+                <li><a href="tutorials_one.html">Tutorial 1: Advanced Git and Github</a></li>
+                <li><a href="tutorials_two.html">Tutorial 2: Introduction to High-Performance Parallel Programming</a></li>
+                <li><a href="tutorials_three.html">Tutorial 3: Practicing Guide to Using Github Pages for Hosting Projects</a></li>
+                <li><a href="tutorials_four.html">Tutorial 4: Measuring Performance in HPC Applications</a></li>
+            </ul>
+        </li>
+        <li><a href="practice_material.html">Practice Material &#x25BE;</a>
+         <ul class="dropdown">
+                <li><a href="Exercise_one.html">Exercise 1: Git & Github Practice Material</a></li>
+                <li><a href="Exercise_two.html">Exercise 2: HPC Practice Material (MPI) & OpenMP)</a></li>
+                <li><a href="Exercise_three.html">Exercise 3: Advanced Git & Github Collaboration</a></li>
+                <li><a href="Exercise_four.html">Exercise 4: Automating Builds with Github Actions</a></li>
+                <li><a href="Exercise_five.html">Exercise 5: MPI + OpenMP Performance Tuning</a></li>
+                <li><a href="Exercise_six.html">Exercise 6: Profiling and Optimization Challenge</a></li>
+                <li><a href="Exercise_seven.html">Exercise 7: Implement Amdahl's Law Experiment</a></li>
+                <li><a href="Exercise_eight.html">Exercise 8: Data Decomposition in MPI</a></li>
+                <li><a href="Exercise_nine.html">Exercise 9: Mini-Project - HPC Stimulation Pipeline</a></li>
+             </ul>
+            </li>
+        <li><a href="further_learning.html">Further Learning</a></li>
+        <li><a href="glossary.html">Glossary</a></li>
+    </ul>
+</nav>
+
+<main>
+    <main>
+
+<section>
+    <h3>Exercise 2: HPC Practice Material</h3>
+    <h2>1. MPI Basics Practice</h2>
+
+    <p><strong>Objective:</strong> Learn distributed memory programming with MPI.</p>
+
+    <p>Exercise 1 - Hello World:</p>
+
+  
+    <ul>
+         <ol type ="1">
+            <li>Write an MPI program that prints <code>Hello World</code> program.</li>
+        </ol>
+
+        <ol type ="2">
+            <li>Compile and run the program using 4 processes.</li>
+        </ol>
+    </ul>
+
+    <p>Exercise 2 - Sum of Numbers Across Processes:</p>
+    <ul>
+        <li>Distribute the computation of the sum of numbers 1–100 across multiple processes.</li>
+        <li>Each process should compute a partial sum and send it to the root process. Each process computes a partial sum, and the root process prints the total sum.</li>
+    </ul>
+
+<p><strong>Commands to Practice:</strong></p>
+
+<code>mpicc hello_mpi.c -o hello_mpi</code>
+<code>mpirun -np 4 ./hello_mpi</code>
+
+</section>
+
+<section>
+    <h2>2. OpenMP Basics Practice</h2>
+
+    <p><strong>Objective:</strong> Learn shared memory parallelism.</p>
+
+<p>Exercise 1 - Hello World with Threads</p>
+
+<ul>
+    <li>Write an OpenMP program that prints <code>Hello World</code> from multiple threads.</li>
+    <li>Compile and run the program with different thread counts (e.g., 2, 4, 8).</li>
+</ul>
+
+<p>Exercise 2 - Parallel Loops</p>
+<ul>
+    <li>Write an OpenMP program that computes the sum of an array in parallel using a for loop.</li>
+    <li>Use the <code>#pragma omp parallel for</code> directive to parallelize the loop.</li>
+</ul>
+
+<p><strong>Commands to Practice:</strong></p>
+
+<code>gcc -fopenmp hello_omp.c -o hello_omp</code>
+<code>./hello_omp</code>
+
+</section>
+
+<section>
+    <h2>3. Hybrid Challenge</h2>
+
+    <ul>
+        <li>Use MPI to distribute an array of numbers across processes.</li>
+        <li>Within each process, use OpenMP to compute partial sums in parallel.</li>
+        <li>Use MPI to reduce partial sums and print the total sum in the root process.</li>
+    </ul>
+
+</section>
+
+<section>
+    <h2>4. Extra Exercises</h2>
+
+    <ul>
+        <li>Modify MPI Hello World to print process IDs in a different order.</li>
+        <li>Experiment with different numbers of threads in OpenMP.</li>
+        <li>Add timing functions to measure performance improvement with parallelism.</li>
+    </ul>
+
+</section>
+
+</main>
+
+
+</body>
+</html>

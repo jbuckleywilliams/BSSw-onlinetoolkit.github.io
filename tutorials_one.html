@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning High-Performance Computing with an Online Toolkit</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" href=favicon.ico">
+    <meta name="description" content="An online toolkit for learning high-performance computing, covering profiling, tuning, and optimization techniques for HPC applications.">
+    <link rel="stylesheet" href="git_content.css">
+</head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Teach &amp; Computational Systems Learning Toolkit: A Research-Based Guide to Version Control, Parallel Programming, and High-Performance Optimization</title>
+</head>
+
+<body>
+
+<header>
+    <h1>From Code to Performance</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>
+            <a href="Git_and_Git_Hub.html">Git and Git Hub &#x25BE;</a>
+            <ul class="dropdown">
+                <li><a href="git_vs_github.html">Git vs. Github</a></li>
+                <li><a href="create_account.html">Create a Github Account</a></li>
+                <li><a href="hello_world.html">Hello World on Github</a></li>
+                <li><a href="questions.html">Common Questions Beginners Have</a></li>
+                <li><a href="bonus.html">Bonus: Hello World in Git Commands</a></li>
+        </ul>
+        </li>
+        <li>
+            <a href="high_performance_computing.html">High-Performance Computing &#x25BE;</a>
+            <ul class="dropdown">
+                <li><a href="introduction_to_high_performance_computing.html">Introduction to HPC Optimization</a></li>
+                <li><a href="computing.html">Parallel Computing Foundations</a></li>
+                <li><a href="programming.html">MPI & OpenMP Programming</a></li>
+                <li><a href="performance.html">Performance Optimization</a></li>
+                <li><a href="tools.html">Performance Analysis and Tools</a></li>
+            </ul>
+            </li>
+
+             <li><a href="Tutorials.html">Tutorials &#x25BE;</a>
+         <ul class="dropdown">
+                <li><a href="tutorials_one.html">Tutorial 1: Advanced Git and Github</a></li>
+                <li><a href="tutorials_two.html">Tutorial 2: Introduction to High-Performance Parallel Programming</a></li>
+                <li><a href="tutorials_three.html">Tutorial 3: Practicing Guide to Using Github Pages for Hosting Projects</a></li>
+                <li><a href="tutorials_four.html">Tutorial 4: Measuring Performance in HPC Applications</a></li>
+            </ul>
+        </li>
+        <li><a href="practice_material.html">Practice Material &#x25BE;</a>
+         <ul class="dropdown">
+                <li><a href="Exercise_one.html">Exercise 1: Git & Github Practice Material</a></li>
+                <li><a href="Exercise_two.html">Exercise 2: HPC Practice Material (MPI) & OpenMP)</a></li>
+                <li><a href="Exercise_three.html">Exercise 3: Advanced Git & Github Collaboration</a></li>
+                <li><a href="Exercise_four.html">Exercise 4: Automating Builds with Github Actions</a></li>
+                <li><a href="Exercise_five.html">Exercise 5: MPI + OpenMP Performance Tuning</a></li>
+                <li><a href="Exercise_six.html">Exercise 6: Profiling and Optimization Challenge</a></li>
+                <li><a href="Exercise_seven.html">Exercise 7: Implement Amdahl's Law Experiment</a></li>
+                <li><a href="Exercise_eight.html">Exercise 8: Data Decomposition in MPI</a></li>
+                <li><a href="Exercise_nine.html">Exercise 9: Mini-Project - HPC Stimulation Pipeline</a></li>
+             </ul>
+            </li>
+        <li><a href="further_learning.html">Further Learning</a></li>
+        <li><a href="glossary.html">Glossary</a></li>
+    </ul>
+</nav>
+
+<main>
+
+<section>
+    <h3>Tutorial 1: Advanced Git and Github</h3>
+    <p>Mastering Git and GitHub for collaborative software development.</p>
+    <h2>1. Branching Strategies</h2>
+    <p>Branches let multiple developers work on the same project independently.</p>
+    <p>Common models</p>
+    <ul>
+        <li><strong>Feature Branching:</strong>Each feature --> separate branch.</li>
+        <li><strong>GitFlow:</strong>Distinguishes between <code>develop, main</code> and <code>release</code> branches.</li>
+        <li><strong>Trunk-Based Development:</strong>All developers commit frequently to <code>main</code> with feature flags.</li>
+    </ul>
+
+<pre><code>git checkout -b feature/login-auth</code></pre>
+<pre><code>git push origin feature/login-auth</code></pre>
+</section>
+
+<section>
+    <h2>2. Pull Requests & Code Reviews</h2>
+    <ul>
+        <li>Open a <strong>Pull Request (PR)</strong> to propose merging code.</li>
+        <li>Use PR template for consistency.</li>
+        <li>Add reviewers, link issues, and require approval before merging.</li>
+    </ul>
+    <p><i>Tip:</i> Use "Draft Pull Requests (PRs)" for work in progress - it signals collaboration without merging prematurely.</p>
+</section>
+
+<section>
+    <h2>3. Handling Merge Conflicts</h2>
+    <p>When two people change the same file, Git requires manual resolution.</p>
+
+<pre><code>git pull origin main</code></pre>
+<pre><code># Fix conflicts</code></pre>
+<pre><code>git add .</code></pre>
+<pre><code>git commit -m "Resolve merge conflicts"</code></pre>
+
+<p>Use <code>git diff</code> or <code>gh pr checkout PR number</code> to inspect changes before merging.</p>
+
+</section>
+
+<section>
+    <h2>4. GitHub Project Tools</h2>
+    <ul>
+        <li><strong>Issues:</strong>Track tasks and bugs with labels and milestones.</li>
+        <li><strong>Projects:</strong>Visual Kanban boards for progress tracking.</li>
+        <li><strong>Actions:</strong>Automate builds, tests, and deployments.</li>
+    </ul>
+
+<pre><code># .github/workflows/python-tests.yml</code></pre>
+<pre><code>on: [push]</code></pre>
+<pre><code>jobs:</code></pre>
+  <pre><code>test:</code></pre>
+    <pre><code>runs-on: ubuntu-latest</code></pre>
+    <pre><code>steps:</code></pre>
+          <pre><code>- uses: actions/checkout@v4</code></pre>
+          <pre><code>- name: Run tests</code></pre>
+            <pre><code>run: pytest</code></pre>
+
+</section>
+
+</main>
+
+</body>
+</html>

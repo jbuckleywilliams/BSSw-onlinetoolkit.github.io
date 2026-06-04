@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Learning High-Performance Computing with an Online Toolkit</title>
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="description" content="An online toolkit for learning high-performance computing, covering profiling, tuning, and optimization techniques for HPC applications.">
+    <link rel="stylesheet" href="git_content.css">
+
+</head>
+
+<body>
+
+<header>
+    <h1>From Code to Performance</h1>
+</header>
+<nav>
+    <ul>
+         <li><a href="index.html">Home</a></li>
+        <li>
+             <a href="Git_and_Git_Hub.html">Git and Git Hub &#x25BE;</a>
+            <ul class="dropdown">
+                <li><a href="what_git_and_git_hub.html">What is Git and GitHub?</a></li>
+                <li><a href="git_vs_github.html">Git vs. Github</a></li>
+                <li><a href="create_account.html">Create a Github Account</a></li>
+                <li><a href="hello_world.html">Hello World on Github</a></li>
+                <li><a href="questions.html">Common Questions Beginners Have</a></li>
+                <li><a href="bonus.html">Bonus: Hello World in Git Commands</a></li>
+        </ul>
+        </li>
+        <li>
+            <a href="high_performance_computing.html">High-Performance Computing &#x25BE;</a>
+            <ul class="dropdown">
+                <li><a href="introduction_to_high_performance_computing.html">Introduction to HPC Optimization</a></li>
+                <li><a href="computing.html">Parallel Computing Foundations</a></li>
+                <li><a href="programming.html">MPI & OpenMP Programming</a></li>
+                <li><a href="performance.html">Performance Optimization</a></li>
+                <li><a href="tools.html">Performance Analysis and Tools</a></li>
+            </ul>
+        </li>
+     <li><a href="Tutorials.html">Tutorials &#x25BE;</a>
+         <ul class="dropdown">
+                <li><a href="tutorials_one.html">Tutorial 1: Advanced Git and Github</a></li>
+                <li><a href="tutorials_two.html">Tutorial 2: Introduction to High-Performance Parallel Programming</a></li>
+                <li><a href="tutorials_three.html">Tutorial 3: Practicing Guide to Using Github Pages for Hosting Projects</a></li>
+                <li><a href="tutorials_four.html">Tutorial 4: Measuring Performance in HPC Applications</a></li>
+            </ul>
+        </li>
+        <li><a href="practice_material.html">Practice Material &#x25BE;</a>
+         <ul class="dropdown">
+                <li><a href="Exercise_one.html">Exercise 1: Git & Github Practice Material</a></li>
+                <li><a href="Exercise_two.html">Exercise 2: HPC Practice Material (MPI) & OpenMP)</a></li>
+                <li><a href="Exercise_three.html">Exercise 3: Advanced Git & Github Collaboration</a></li>
+                <li><a href="Exercise_four.html">Exercise 4: Automating Builds with Github Actions</a></li>
+                <li><a href="Exercise_five.html">Exercise 5: MPI + OpenMP Performance Tuning</a></li>
+                <li><a href="Exercise_six.html">Exercise 6: Profiling and Optimization Challenge</a></li>
+                <li><a href="Exercise_seven.html">Exercise 7: Implement Amdahl's Law Experiment</a></li>
+                <li><a href="Exercise_eight.html">Exercise 8: Data Decomposition in MPI</a></li>
+                <li><a href="Exercise_nine.html">Exercise 9: Mini-Project - HPC Stimulation Pipeline</a></li>
+             </ul>
+            </li>
+        <li><a href="further_learning.html">Further Learning</a></li>
+        <li><a href="glossary.html">Glossary</a></li>
+    </ul>
+</nav>
+
+
+<main>
+
+<section>
+    <h3>Exercise 1: Git & Github Practice Material</h3>
+
+    <p><strong>Objective:</strong> Learn to initialize repositories, add and commit files, and check status/history.</p>
+
+    <h2>Exercises</h2>
+    <ul>
+        <li>Create a folder called <code>git_practice</code> on your computer.</li>
+        <li>Initialize a Git repository inside it.</li>
+        <li>Create a file called <code>notes.txt</code> with some content.</li>
+        <li>Stage and commit the file.</li>
+        <li>Modify the file, then check Git status before committing.</li>
+        <li>View commit history using <code>git log</code>.</li>
+    </ul>
+
+    <p><strong>Commands to Practice:</strong></p>
+
+<pre><code>git init</code></pre>
+<pre><code>git status</code></pre>
+<pre><code>git add notes.txt</code></pre>
+<pre><code>git commit -m "Initial commit"</code></pre>
+<pre><code>git log</code></pre>
+
+</section>
+
+<section>
+    <h2>2. Remote Repository Practice</h2>
+
+    <p><strong>Objective:</strong> Learn to connect local repositories to GitHub.</p>
+
+    <ul>
+        <li>Create a new GitHub repository called <code>git_practice_repo</code>.</li>
+        <li>Connect your local <code>git_practice</code> repo to GitHub.</li>
+        <li>Push commits to GitHub.</li>
+        <li>Create a new file <code>todo.txt</code>, add some tasks, and commit.</li>
+        <li>Push the new commit to GitHub.</li>
+    </ul>
+
+<pre><code>git remote add origin https://github.com/username/git_practice_repo.git</code></pre>
+<pre><code>git branch -M main</code></pre>
+<pre><code>git push -u origin main</code></pre>
+<pre><code>git add todo.txt</code></pre>
+<pre><code>git commit -m "Add tasks"</code></pre>
+<pre><code>git push</code></pre>
+
+</section>
+
+<section>
+    <h2>3. Branching and Merging</h2>
+
+    <p><strong>Objective:</strong> Learn how to create branches, make changes, and merge them.</p>
+
+    <h2>Exercises</h2>
+        <ul>
+            <li>Create a branch called <code>feature-update</code></li>
+            <li>Add a new file <code>feature.txt</code> with content.</li>
+            <li>Commit your changes.</li>
+            <li>Switch back to the <code>main</code> branch and merge <code>feature-update</code>.</li>
+            <li>Resolve any merge conflicts (optional: create conflicting changes in <code>feature.txt</code> to practice resolving).</li>
+        </ul>
+<p><strong>Commands to Practice:</strong></p>
+
+<pre><code>git checkout -b feature-update</code></pre>
+<pre><code>git add feature.txt</code></pre>
+<pre><code>git commit -m "Add new feature"</code></pre>
+<pre><code>git checkout main</code></pre>
+<pre><code>git merge feature-update</code></pre>
+
+</section>
+
+<section>
+    <h2>4. Challenge Mini-Project</h2>
+
+    <p><strong>Objective:</strong> Apply Git & GitHub workflow in a small project.</p>
+
+    <p><strong>Task:</strong></p>
+    <p>Create a simple "Personal Notes Organizer" project:</p>
+
+    <ul>
+        <li>Folders structure: <code>notes/</code> and <code>archive/</code></li>
+        <li>Add a few text files with sample notes.</li>
+        <li>Commit and push changes to GitHub.</li>
+        <li>Create a <code>feature</code> branch to add an "Archive" feature.</li>
+        <li>Merge back to main after completing.</li>
+    </ul>
+
+</section>
+
+</main>
+
+
+</body>
+</html>

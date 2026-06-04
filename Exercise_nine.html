@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Learning High-Performance Computing with an Online Toolkit</title>
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="description" content="An online toolkit for learning high-performance computing, covering profiling, tuning, and optimization techniques for HPC applications.">
+    <link rel="stylesheet" href="git_content.css">
+
+</head>
+
+<body>
+
+<header>
+    <h1>From Code to Performance</h1>
+</header>
+<nav>
+    <ul>
+         <li><a href="index.html">Home</a></li>
+        <li>
+             <a href="Git_and_Git_Hub.html">Git and Git Hub &#x25BE;</a>
+            <ul class="dropdown">
+                <li><a href="what_git_and_git_hub.html">What is Git and GitHub?</a></li>
+                <li><a href="git_vs_github.html">Git vs. Github</a></li>
+                <li><a href="create_account.html">Create a Github Account</a></li>
+                <li><a href="hello_world.html">Hello World on Github</a></li>
+                <li><a href="questions.html">Common Questions Beginners Have</a></li>
+                <li><a href="bonus.html">Bonus: Hello World in Git Commands</a></li>
+        </ul>
+        </li>
+        <li>
+            <a href="high_performance_computing.html">High-Performance Computing &#x25BE;</a>
+            <ul class="dropdown">
+                <li><a href="introduction_to_high_performance_computing.html">Introduction to HPC Optimization</a></li>
+                <li><a href="computing.html">Parallel Computing Foundations</a></li>
+                <li><a href="programming.html">MPI & OpenMP Programming</a></li>
+                <li><a href="performance.html">Performance Optimization</a></li>
+                <li><a href="tools.html">Performance Analysis and Tools</a></li>
+            </ul>
+        </li>
+     <li><a href="Tutorials.html">Tutorials &#x25BE;</a>
+         <ul class="dropdown">
+                <li><a href="tutorials_one.html">Tutorial 1: Advanced Git and Github</a></li>
+                <li><a href="tutorials_two.html">Tutorial 2: Introduction to High-Performance Parallel Programming</a></li>
+                <li><a href="tutorials_three.html">Tutorial 3: Practicing Guide to Using Github Pages for Hosting Projects</a></li>
+                <li><a href="tutorials_four.html">Tutorial 4: Measuring Performance in HPC Applications</a></li>
+            </ul>
+        </li>
+        <li><a href="practice_material.html">Practice Material &#x25BE;</a>
+         <ul class="dropdown">
+                <li><a href="Exercise_one.html">Exercise 1: Git & Github Practice Material</a></li>
+                <li><a href="Exercise_two.html">Exercise 2: HPC Practice Material (MPI) & OpenMP)</a></li>
+                <li><a href="Exercise_three.html">Exercise 3: Advanced Git & Github Collaboration</a></li>
+                <li><a href="Exercise_four.html">Exercise 4: Automating Builds with Github Actions</a></li>
+                <li><a href="Exercise_five.html">Exercise 5: MPI + OpenMP Performance Tuning</a></li>
+                <li><a href="Exercise_six.html">Exercise 6: Profiling and Optimization Challenge</a></li>
+                <li><a href="Exercise_seven.html">Exercise 7: Implement Amdahl's Law Experiment</a></li>
+                <li><a href="Exercise_eight.html">Exercise 8: Data Decomposition in MPI</a></li>
+                <li><a href="Exercise_nine.html">Exercise 9: Mini-Project - HPC Stimulation Pipeline</a></li>
+             </ul>
+            </li>
+        <li><a href="further_learning.html">Further Learning</a></li>
+        <li><a href="glossary.html">Glossary</a></li>
+    </ul>
+</nav>
+
+
+<main>
+
+<section>
+    <h2>Exercise 9: Mini-Project - HPC Stimulation Pipeline</h2>
+    <p><strong>Objective:</strong>In this exercise, you will implement data decomposition techniques in an MPI application. You will create a simulation pipeline that processes data in parallel using MPI, applying the concepts learned in previous exercises.</p>
+    <p><strong>Scenario:</strong> You are tasked with developing a simulation pipeline for a scientific application that requires processing large datasets. The pipeline consists of several stages, including data generation, processing, and analysis. Each stage can be parallelized using MPI to improve performance. You are building a Parallel Monte Carlo Simulation to estimate the value of π.</p>
+    <p><strong>Steps:</strong></p>
+
+    <ol type ="1">
+        <li><strong>Repository Setup:</strong> Create a new Git repository for your project and set up the necessary directory structure.</li>
+        <ul>
+        <li><strong>Data Generation:</strong> Create a function that generates random points within a unit square. Each point will have coordinates (x, y) where x and y are random numbers between 0 and 1.</li>
+        <li><strong>Processing:</strong> Implement a function that checks whether each generated point falls within a quarter circle inscribed within the unit square. This can be done by checking if x^2 + y^2 <= 1.</li>
+        <li><strong>Parallelization with MPI:</strong> Use MPI to parallelize the data generation and processing steps. Each MPI process should generate a portion of the total number of points and count how many fall within the quarter circle.</li>
+        <li><strong>Reduction:</strong> Use MPI_Reduce to collect the counts from all processes and calculate the total number of points that fall within the quarter circle.</li>
+        <li><strong>Estimation of π:</strong> Calculate the estimate of π using the formula: π ≈ 4 * (number of points in quarter circle / total number of points).</li>
+        <li><strong>Performance Analysis:</strong> Measure the runtime of your parallel implementation and compare it to a serial version of the same algorithm. Analyze how performance scales with increasing numbers of processes.</li>
+        </ul>
+    </ol>
+    <ol type="1" start="2">
+        <ul>
+        <li><strong>Documentation and Version Control:</strong> Document your code and commit your changes to the Git repository regularly. Use meaningful commit messages to track your progress.</li>
+        <li><strong>Final Report:</strong> Write a report summarizing your implementation, performance results, and any challenges you faced during the project. Include graphs or tables to illustrate the performance scaling.</li>
+        <li>Use MPI to distribute random point generation among ranks.</li>
+        <li>Within each rank, parallelize using OpenMP.</li>
+        </ul>
+    <ol type="1" start="3">
+        <li><strong>Performance Measurement:</strong></li>
+        <ul>
+            <li>Compare runtime for different ranks/threads combinations.</li>
+        </ul>
+    </ol>
+    <ol type="1" start="4">
+        <li><strong>Documentation:</strong></li>
+        <ul>
+            <li>Ensure your code is well-documented with comments explaining key sections.</li>
+            <li>Update your README file with instructions on how to run your simulation.</li>
+            <li>Commit plots, reports, and a performance summary in Markdown format.</li>
+            <liUse GitHub Pages to host your project and share it with others.</li>
+        </ul>
+    </ol>
+</section>
+
+<section>
+<p><strong>Deliverables:</strong></p>
+<ul>
+    <li>Source code for the MPI application implementing the simulation pipeline.</li>
+    <li>Documentation explaining the design and implementation of your solution.</li>
+    <li>Performance analysis report comparing the parallel and serial versions.</li>
+    <li>Any additional materials (e.g., plots, graphs) generated during the project.</li>
+</ul>
+</section>
+
+<section>
+    <p><strong>Learning Outcomes:</strong></p>
+    <ul>
+        <li>Apply data decomposition techniques in an MPI application.</li>
+        <li>Understand the challenges and benefits of parallelizing a simulation pipeline.</li>
+        <li>Gain experience with performance analysis and optimization in HPC applications.</li>
+        <li>Enhance documentation and version control skills using Git.</li>
+        <li>Add each as a <strong>downloadable worksheet</strong> or <strong>Interactive tutorial</strong> in your project repository on your Websites.</li>
+        <li>Pair them with <strong>solution notebooks</strong> (C Code + Command walkthroughs)that demonstrate the implementation and results.</li>
+
+    </ul>
+</section>  
+</main> 
+

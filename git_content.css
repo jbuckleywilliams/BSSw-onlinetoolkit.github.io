@@ -1,0 +1,607 @@
+/* =========================================================
+   ROOT VARIABLES
+========================================================= */
+:root {
+    --primary-color: #3e1023;
+    --primary-dark: #2a0b18;
+    --accent-color: #188038;
+
+    --background-color: #f8f2f2;
+    --surface-color: #ffffff;
+
+    --text-color: #1f1f1f;
+    --text-light: #5f6368;
+
+    --border-color: #d9d9d9;
+
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+
+    --transition: all 0.3s ease;
+
+    --max-width: 1200px;
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   GLOBAL STYLING
+========================================================= */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    background: linear-gradient(to bottom, #f8f2f2, #ffffff);
+    color: var(--text-color);
+
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+h1,
+h2,
+h4 {
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: -0.4px;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+h2 {
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    margin-bottom: 1rem;
+}
+
+
+p,
+li {
+    font-size: 1.05rem;
+    color: var(--text-color);
+}
+
+p {
+    margin-bottom: 1.25rem;
+}
+
+ul,
+ol {
+    margin: 1rem 0 1.5rem 2rem;
+}
+
+li {
+    margin-bottom: 0.7rem;
+}
+
+/* =========================================================
+   HORIZONTAL RULE
+========================================================= */
+hr {
+    width: 80%;
+    max-width: 900px;
+    height: 2px;
+    margin: 4rem auto;
+    border: none;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--primary-color),
+        transparent
+    );
+
+    opacity: 0.35;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+header {
+    background: linear-gradient(
+        135deg,
+        var(--primary-color),
+        var(--primary-dark)
+    );
+
+    color: white;
+    text-align: center;
+
+    padding: 3rem 1.5rem;
+
+    box-shadow: var(--shadow-md);
+}
+
+header h1 {
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+header .logo {
+    max-width: 160px;
+    margin-bottom: 1rem;
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background-color: rgba(62, 16, 35, 0.95);
+    backdrop-filter: blur(10px);
+
+    box-shadow: var(--shadow-sm);
+}
+
+nav ul {
+    list-style: none;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+nav ul li {
+    position: relative;
+}
+
+/* Navigation links */
+nav ul li a {
+    display: block;
+
+    padding: 1rem 1.25rem;
+
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+/* Hover effect */
+nav ul li a:hover {
+    background-color: white;
+    color: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+/* =========================================================
+   DROPDOWN MENU
+========================================================= */
+nav ul li ul.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    min-width: 260px;
+
+    background-color: white;
+
+    border-radius: 10px;
+
+    box-shadow: var(--shadow-md);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+
+    transition:
+        opacity var(--transition-normal),
+        transform var(--transition-normal),
+        visibility var(--transition-normal);
+}
+
+/* Dropdown items */
+nav ul li ul.dropdown li {
+    width: 100%;
+}
+
+nav ul li ul.dropdown li a {
+    color: var(--text-color);
+    padding: 0.9rem 1rem;
+    background-color: white;
+}
+
+nav ul li ul.dropdown li a:hover {
+    background-color: #f4f4f4;
+    color: var(--primary-color);
+}
+
+/* Show dropdown */
+nav ul li:hover ul.dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* =========================================================
+   SCROLLABLE DROPDOWN MENU
+========================================================= */
+
+.dropdown-scrollbar {
+    max-height: 320px;     /* Controls dropdown height */
+    overflow-y: auto;      /* Enables vertical scrolling */
+    overflow-x: hidden;
+
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #888 #f1f1f1;
+
+    scroll-behavior: smooth;
+}
+
+/* Chrome, Edge, Safari */
+.dropdown-scrollbar::-webkit-scrollbar {
+    width: 10px;
+}
+
+.dropdown-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.dropdown-scrollbar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.dropdown-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+main {
+    flex: 1;
+
+    width: 100%;
+    max-width: var(--max-width);
+
+    margin: 0 auto;
+    padding: 3rem 2rem 6rem;
+}
+
+section {
+    background: var(--surface-color);
+
+    margin-bottom: 2.5rem;
+    padding: 2.5rem;
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-sm);
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+main h2 {
+    position: relative;
+    padding-bottom: 0.75rem;
+}
+
+main h2::after {
+    content: "";
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 90px;
+    height: 4px;
+
+    border-radius: 999px;
+
+    background: var(--accent-color);
+}
+
+/* =========================================================
+   CODE BLOCKS
+========================================================= */
+pre {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+
+    overflow-x: auto;
+
+    border-radius: var(--radius-md);
+
+    background: #111827;
+
+    box-shadow: var(--shadow-sm);
+}
+
+pre code {
+    background: transparent;
+
+    color: #e5e7eb;
+
+    font-size: 0.95rem;
+    font-family: "Fira Code", "Courier New", monospace;
+
+    line-height: 1.7;
+}
+
+code {
+    padding: 0.2rem 0.45rem;
+
+    border-radius: 4px;
+
+    background: #f1f3f4;
+
+    color: var(--accent-color);
+
+    font-family: "Fira Code", "Courier New", monospace;
+    font-size: 0.92rem;
+}
+
+/* =========================================================
+   TABLES
+========================================================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+    margin: 2rem 0;
+
+    background: white;
+
+    border-radius: var(--radius-md);
+
+    overflow: hidden;
+
+    box-shadow: var(--shadow-sm);
+}
+
+tr {
+    border-bottom: 1px solid #eeeeee;
+}
+
+tr:hover {
+    background-color: #fafafa;
+}
+
+th,
+td {
+    padding: 1rem;
+    text-align: left;
+}
+
+th {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* =========================================================
+   LINKS & BUTTON STYLE
+========================================================= */
+a {
+    color: var(--accent-color);
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+.button-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 1rem;
+    padding: 0.9rem 1.6rem;
+
+    border-radius: var(--radius-md);
+
+    background: var(--primary-color);
+    color: white;
+
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: var(--transition);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.button-link:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+footer {
+    margin-top: auto;
+
+    background: linear-gradient(
+        135deg,
+        var(--primary-dark),
+        var(--primary-color)
+    );
+
+    color: rgba(255, 255, 255, 0.85);
+
+    text-align: center;
+
+    padding: 1.5rem;
+
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.08);
+}
+
+footer p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+@media (max-width: 992px) {
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    nav ul li a {
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    nav ul li ul.dropdown {
+        position: static;
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    main {
+        padding: 2rem 1.25rem 5rem;
+    }
+
+    section {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 2.5rem 1rem;
+    }
+
+    main {
+        padding: 1.5rem 1rem 5rem;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+    }
+
+    h3 {
+        font-size: 1.35rem;
+    }
+
+    p,
+    li {
+        font-size: 1rem;
+    }
+}
+
+/* =========================================================
+   H3 HEADINGS
+========================================================= */
+
+main h3 {
+    position: relative;
+
+    text-align: center;
+
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    color: var(--primary-color);
+
+    margin: 4rem auto 2rem;
+
+    width: fit-content;
+
+    padding-bottom: 1rem;
+
+    transition: all 0.3s ease;
+}
+
+/* Animated underline effect */
+main h3::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 0;
+
+    transform: translateX(-50%);
+
+    width: 70px;
+    height: 4px;
+
+    border-radius: 999px;
+
+    background: linear-gradient(
+        90deg,
+        var(--primary-color),
+        var(--accent-color)
+    );
+
+    transition: width 0.3s ease;
+}
+
+/* Hover animation */
+main h3:hover {
+    transform: translateY(-3px);
+    text-shadow: 0 4px 12px rgba(62, 16, 35, 0.2);
+}
+
+/* Expand underline on hover */
+main h3:hover::after {
+    width: 120px;
+}
